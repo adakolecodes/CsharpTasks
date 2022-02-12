@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "69a186eb-2d78-469a-8e7f-36f5ce99a26d": {
+      "ProjectGuid": "69a186eb-2d78-469a-8e7f-36f5ce99a26d",
+      "DisplayName": "MyConsoleApp1",
+      "ColorIndex": 0
+    },
+    "2529be71-35b1-402b-a6d9-4b9d6942921f": {
+      "ProjectGuid": "2529be71-35b1-402b-a6d9-4b9d6942921f",
+      "DisplayName": "FizzBuzzChallenge",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

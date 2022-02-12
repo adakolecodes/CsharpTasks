@@ -1,0 +1,8 @@
+C:\Users\SAMUEL\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\bin\Debug\FizzBuzzChallenge.exe.config
+C:\Users\SAMUEL\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\bin\Debug\FizzBuzzChallenge.exe
+C:\Users\SAMUEL\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\bin\Debug\FizzBuzzChallenge.pdb
+C:\Users\SAMUEL\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\obj\Debug\FizzBuzzChallenge.csproj.AssemblyReference.cache
+C:\Users\SAMUEL\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\obj\Debug\FizzBuzzChallenge.csproj.SuggestedBindingRedirects.cache
+C:\Users\SAMUEL\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\obj\Debug\FizzBuzzChallenge.csproj.CoreCompileInputs.cache
+C:\Users\SAMUEL\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\obj\Debug\FizzBuzzChallenge.exe
+C:\Users\SAMUEL\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\obj\Debug\FizzBuzzChallenge.pdb
