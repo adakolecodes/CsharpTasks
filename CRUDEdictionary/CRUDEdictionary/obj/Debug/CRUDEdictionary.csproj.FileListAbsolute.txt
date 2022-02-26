@@ -1,0 +1,8 @@
+C:\Users\SAMUEL\source\repos\CRUDEdictionary\CRUDEdictionary\bin\Debug\CRUDEdictionary.exe.config
+C:\Users\SAMUEL\source\repos\CRUDEdictionary\CRUDEdictionary\bin\Debug\CRUDEdictionary.exe
+C:\Users\SAMUEL\source\repos\CRUDEdictionary\CRUDEdictionary\bin\Debug\CRUDEdictionary.pdb
+C:\Users\SAMUEL\source\repos\CRUDEdictionary\CRUDEdictionary\obj\Debug\CRUDEdictionary.csproj.AssemblyReference.cache
+C:\Users\SAMUEL\source\repos\CRUDEdictionary\CRUDEdictionary\obj\Debug\CRUDEdictionary.csproj.SuggestedBindingRedirects.cache
+C:\Users\SAMUEL\source\repos\CRUDEdictionary\CRUDEdictionary\obj\Debug\CRUDEdictionary.csproj.CoreCompileInputs.cache
+C:\Users\SAMUEL\source\repos\CRUDEdictionary\CRUDEdictionary\obj\Debug\CRUDEdictionary.exe
+C:\Users\SAMUEL\source\repos\CRUDEdictionary\CRUDEdictionary\obj\Debug\CRUDEdictionary.pdb

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "d14526e9-85e9-4cf9-a486-baf85cda27f8": {
+      "ProjectGuid": "d14526e9-85e9-4cf9-a486-baf85cda27f8",
+      "DisplayName": "CRUDEdictionary",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
