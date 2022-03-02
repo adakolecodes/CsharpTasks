@@ -1,0 +1,8 @@
+C:\Users\SAMUEL\source\repos\NEWCRUDEdictionary\NEWCRUDEdictionary\obj\Debug\NEWCRUDEdictionary.csproj.AssemblyReference.cache
+C:\Users\SAMUEL\source\repos\NEWCRUDEdictionary\NEWCRUDEdictionary\obj\Debug\NEWCRUDEdictionary.csproj.SuggestedBindingRedirects.cache
+C:\Users\SAMUEL\source\repos\NEWCRUDEdictionary\NEWCRUDEdictionary\obj\Debug\NEWCRUDEdictionary.csproj.CoreCompileInputs.cache
+C:\Users\SAMUEL\source\repos\NEWCRUDEdictionary\NEWCRUDEdictionary\bin\Debug\NEWCRUDEdictionary.exe.config
+C:\Users\SAMUEL\source\repos\NEWCRUDEdictionary\NEWCRUDEdictionary\bin\Debug\NEWCRUDEdictionary.exe
+C:\Users\SAMUEL\source\repos\NEWCRUDEdictionary\NEWCRUDEdictionary\bin\Debug\NEWCRUDEdictionary.pdb
+C:\Users\SAMUEL\source\repos\NEWCRUDEdictionary\NEWCRUDEdictionary\obj\Debug\NEWCRUDEdictionary.exe
+C:\Users\SAMUEL\source\repos\NEWCRUDEdictionary\NEWCRUDEdictionary\obj\Debug\NEWCRUDEdictionary.pdb
