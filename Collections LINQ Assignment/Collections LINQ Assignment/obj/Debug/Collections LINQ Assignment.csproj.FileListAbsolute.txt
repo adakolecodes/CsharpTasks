@@ -1,0 +1,8 @@
+C:\Users\SAMUEL\source\repos\Collections LINQ Assignment\Collections LINQ Assignment\bin\Debug\Collections LINQ Assignment.exe.config
+C:\Users\SAMUEL\source\repos\Collections LINQ Assignment\Collections LINQ Assignment\bin\Debug\Collections LINQ Assignment.exe
+C:\Users\SAMUEL\source\repos\Collections LINQ Assignment\Collections LINQ Assignment\bin\Debug\Collections LINQ Assignment.pdb
+C:\Users\SAMUEL\source\repos\Collections LINQ Assignment\Collections LINQ Assignment\obj\Debug\Collections LINQ Assignment.csproj.AssemblyReference.cache
+C:\Users\SAMUEL\source\repos\Collections LINQ Assignment\Collections LINQ Assignment\obj\Debug\Collections LINQ Assignment.csproj.SuggestedBindingRedirects.cache
+C:\Users\SAMUEL\source\repos\Collections LINQ Assignment\Collections LINQ Assignment\obj\Debug\Collections LINQ Assignment.csproj.CoreCompileInputs.cache
+C:\Users\SAMUEL\source\repos\Collections LINQ Assignment\Collections LINQ Assignment\obj\Debug\Collections LINQ Assignment.exe
+C:\Users\SAMUEL\source\repos\Collections LINQ Assignment\Collections LINQ Assignment\obj\Debug\Collections LINQ Assignment.pdb
