@@ -26,6 +26,15 @@ namespace Collections_LINQ_Assignment
 				new Person("Gail","Dawson", 19 ),
 			};
 
+			//QUESTION:write linq display every name ordered alphabetically
+			//SOLUTION 1a
+			people.Sort((x, y) => string.Compare(x.FirstName, y.LastName));
+			foreach (Person individual in people)
+            {
+				Console.WriteLine(individual.FirstName);
+            }
+			Console.WriteLine("End Here________________________");
+
 			//QUESTION: write linq statement for all the people who are have the surname Thompson and Baker. Write all the first names to the console
 			//SOLUTION 2
 			var targets = people.Where(x => x.LastName == "Thompson" || x.LastName == "Baker");
@@ -50,6 +59,10 @@ namespace Collections_LINQ_Assignment
 			{
 				Console.WriteLine(mylist2.LastName);
 			}
+
+			//OR
+			var lastNameDs = people.Where(x => x.LastName.ToLower().First() == 'd').Count();
+			Console.WriteLine(lastNameDs);
 
 
 			Console.ReadKey();

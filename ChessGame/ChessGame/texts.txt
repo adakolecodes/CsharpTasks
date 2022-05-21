@@ -1,0 +1,106 @@
+﻿
+
+
+WHAT ARE METHODS?
+A method is a code block that contains a series of statements. 
+A program causes the statements to be executed by calling the 
+method and specifying any required method arguments.
+A method is a block of code which only runs when it is called.
+You can pass data, known as parameters, into a method.
+Methods are used to perform certain actions, and they are also known as functions.
+
+
+
+
+
+
+WHY SHOULD YOU USE METHODS
+Generally, methods are useful to improve code reusability by reducing code duplication.
+To reuse code: define the code once, and use it many times.
+
+
+
+
+
+
+HOW TO WRITE A METHOD
+Create a method inside the Program class:
+class Program
+{
+  public void MyMethod() 
+  {
+    // code to be executed
+  }
+}
+
+
+
+
+
+
+
+HOW TO CALL A METHOD
+To call (execute) a method, write the method's name followed by two parentheses () and a semicolon;
+In the following example, MyMethod() is used to print a text (the action), when it is called:
+public void MyMethod() 
+{
+  Console.WriteLine("I just got executed!");
+}
+
+static void Main(string[] args)
+{
+  MyMethod();
+}
+
+// Outputs "I just got executed!"
+
+
+
+
+
+
+
+WHAT THE RETURN KEYWORD DOES
+The return statement is used to return value. When a program calls a function, 
+the program control is transferred to the called function.
+
+
+
+
+
+HOW TO GIVE DATA TO A METHOD (PARAMETERS)
+public int Add(int a, int b)
+{
+    return a + b;
+}
+
+public int Subtract(int a, int b)
+{
+    return a - b;
+}
+
+public void Caller()
+{
+    int numA = 4;
+    int numB = 32;
+
+    int result1 = Add(numA, numB);
+    int result2 = Subtract(numA, numB);
+}
+
+
+
+
+
+
+DIFFERENCE BETWEEN STATIC METHOD AND INSTANT/NON-STATIC METHOD
+Firstly, the static keyword differentiates it from an instance method or class.
+
+1. Static method is defined with the static keyword.
+1. Non Static Method is defined without static keyword.
+2. Static method is called by its class name
+2. Non Static Method is called by making the object of a class.
+3. We can’t use this keyword inside the Static Method
+3. We can use thiskeyword inside Non Static Method
+4. Static Method uses the memory of Class
+4. Non Static Method uses a memory of an object

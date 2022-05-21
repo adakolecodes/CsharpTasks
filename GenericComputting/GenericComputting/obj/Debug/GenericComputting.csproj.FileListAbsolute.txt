@@ -1,0 +1,8 @@
+C:\Users\SAMUEL\source\repos\GenericComputting\GenericComputting\bin\Debug\GenericComputting.exe.config
+C:\Users\SAMUEL\source\repos\GenericComputting\GenericComputting\bin\Debug\GenericComputting.exe
+C:\Users\SAMUEL\source\repos\GenericComputting\GenericComputting\bin\Debug\GenericComputting.pdb
+C:\Users\SAMUEL\source\repos\GenericComputting\GenericComputting\obj\Debug\GenericComputting.csproj.AssemblyReference.cache
+C:\Users\SAMUEL\source\repos\GenericComputting\GenericComputting\obj\Debug\GenericComputting.csproj.SuggestedBindingRedirects.cache
+C:\Users\SAMUEL\source\repos\GenericComputting\GenericComputting\obj\Debug\GenericComputting.csproj.CoreCompileInputs.cache
+C:\Users\SAMUEL\source\repos\GenericComputting\GenericComputting\obj\Debug\GenericComputting.exe
+C:\Users\SAMUEL\source\repos\GenericComputting\GenericComputting\obj\Debug\GenericComputting.pdb

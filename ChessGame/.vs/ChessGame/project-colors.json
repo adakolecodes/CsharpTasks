@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ed6cd019-4a9d-492e-93f8-ee885f119b1f": {
+      "ProjectGuid": "ed6cd019-4a9d-492e-93f8-ee885f119b1f",
+      "DisplayName": "ChessGame",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
