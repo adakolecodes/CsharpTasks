@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DataAccess\IAccountRepository.cs" />
     <Compile Include="Domain\Account.cs" />
     <Compile Include="Domain\Services\INotificationService.cs" />
