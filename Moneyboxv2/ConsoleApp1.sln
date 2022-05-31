@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyBox.App", "MoneyBox.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyBox.App.Test", "MoneyBox.App.Test\MoneyBox.App.Test.csproj", "{D279A38B-0951-4F40-9ABB-2858BDAC9EDE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{FE940875-3EF9-411D-B7F7-C55C31DF8E95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D279A38B-0951-4F40-9ABB-2858BDAC9EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D279A38B-0951-4F40-9ABB-2858BDAC9EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D279A38B-0951-4F40-9ABB-2858BDAC9EDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE940875-3EF9-411D-B7F7-C55C31DF8E95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE940875-3EF9-411D-B7F7-C55C31DF8E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE940875-3EF9-411D-B7F7-C55C31DF8E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE940875-3EF9-411D-B7F7-C55C31DF8E95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
