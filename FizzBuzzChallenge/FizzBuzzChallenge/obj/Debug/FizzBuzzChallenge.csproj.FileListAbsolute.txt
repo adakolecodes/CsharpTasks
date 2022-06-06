@@ -6,3 +6,11 @@ C:\Users\SAMUEL\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\obj\Debug\FizzB
 C:\Users\SAMUEL\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\obj\Debug\FizzBuzzChallenge.csproj.CoreCompileInputs.cache
 C:\Users\SAMUEL\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\obj\Debug\FizzBuzzChallenge.exe
 C:\Users\SAMUEL\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\obj\Debug\FizzBuzzChallenge.pdb
+C:\Users\danie\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\bin\Debug\FizzBuzzChallenge.exe.config
+C:\Users\danie\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\bin\Debug\FizzBuzzChallenge.exe
+C:\Users\danie\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\bin\Debug\FizzBuzzChallenge.pdb
+C:\Users\danie\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\obj\Debug\FizzBuzzChallenge.csproj.AssemblyReference.cache
+C:\Users\danie\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\obj\Debug\FizzBuzzChallenge.csproj.SuggestedBindingRedirects.cache
+C:\Users\danie\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\obj\Debug\FizzBuzzChallenge.csproj.CoreCompileInputs.cache
+C:\Users\danie\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\obj\Debug\FizzBuzzChallenge.exe
+C:\Users\danie\source\repos\FizzBuzzChallenge\FizzBuzzChallenge\obj\Debug\FizzBuzzChallenge.pdb
