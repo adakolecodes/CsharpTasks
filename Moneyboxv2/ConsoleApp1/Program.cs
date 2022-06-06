@@ -35,12 +35,19 @@ namespace ConsoleApp1
 
                     var account = new Account();
 
-                    account.User = user;
-                    account.Id = 1;
-                    user.Id = 1;
-
                     //Make the Id unique
+                    //Creating unique id from c# Random method
+                    Random rd = new Random();
+                    int rand_num = rd.Next(100, 200);
+
+                    account.User = user;
+                    account.Id = rand_num;
+                    user.Id = rand_num;
+
                     //Store the accounts in a list
+                    List<string> accountList = new List<string>();
+
+                    accountList.Add(name);
 
                 }else if ("withdraw".Equals(instruction, StringComparison.CurrentCultureIgnoreCase))
                 {
