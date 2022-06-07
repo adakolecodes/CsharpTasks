@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Moneybox.App;
 using Moneybox.App.DataAccess;
+using Moneybox.App.Domain;
 using NUnit;
 using NUnit.Framework;
 
@@ -12,6 +13,20 @@ namespace UnitTestProject1
 {
     class DanielsFirstTest
     {
+        [Test] 
+        public void WhenAccountIdIsNotSet_TheStoreSetsIt()
+        {
+            // setup
+            var repo = new AccountRepository();
+            var account = new Account { User = new User()};
+
+            // Act
+            repo.Update(account);
+
+            // Assert
+            Assert.That(repo.GetAccountById(1), Is.EqualTo(account));
+        }
+
         [Test]
         public void CanSaveAnAccountInTheRepo()
         {

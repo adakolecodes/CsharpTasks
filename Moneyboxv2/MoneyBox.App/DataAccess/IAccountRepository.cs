@@ -12,7 +12,8 @@ namespace Moneybox.App.DataAccess
 
     public class AccountRepository : IAccountRepository
     {
-        private Dictionary<int, Account> _accounts;
+        private readonly Dictionary<int, Account> _accounts;
+        private int _lastId = 1;
 
         public AccountRepository()
         {
@@ -27,21 +28,16 @@ namespace Moneybox.App.DataAccess
             }
 
             return _accounts[accountId];
-
-            // Exactly the same as this but above easier to understand and shorter
-//            var res = _accounts.TryGetValue(accountId, out var account);
-//            if (res == false)
-//            {
-//                throw new Exception($"Account with id {accountId} was not found");
-//            }
-//            else
-//            {
-//                return account;
-//            }
         }
 
         public void Update(Account account)
         {
+            if (account.Id == 0)
+            {
+                account.Id = _lastId++;
+                account.User.Id = _lastId++;
+            }
+
             // add or update in dictionary
             _accounts[account.Id] = account;
         }

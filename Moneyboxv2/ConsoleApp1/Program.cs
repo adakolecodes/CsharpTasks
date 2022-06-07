@@ -17,6 +17,7 @@ namespace ConsoleApp1
         {
             var store = new AccountRepository();
             var withdraw = new WithdrawMoney(store, new NotificationService());
+
             while (true)
             {
                 Console.WriteLine("What do you want to do");
@@ -24,33 +25,14 @@ namespace ConsoleApp1
                 //How to compare string to ignore case
                 if("create".Equals(instruction, StringComparison.CurrentCultureIgnoreCase))
                 {
-                    Console.WriteLine("What is your name?");
-                    var name = Console.ReadLine();
-                    Console.WriteLine("What is your email?");
-                    var email = Console.ReadLine();
-
-                    var user = new User();
-                    user.Name = name;
-                    user.Email = email;
-
-                    var account = new Account();
-
-                    //Make the Id unique
-                    //Creating unique id from c# Random method
-                    Random rd = new Random();
-                    int rand_num = rd.Next(100, 200);
-
-                    account.User = user;
-                    account.Id = rand_num;
-                    user.Id = rand_num;
-
-                    //Store the accounts in a list
-                    List<string> accountList = new List<string>();
-
-                    accountList.Add(name);
-
-                }else if ("withdraw".Equals(instruction, StringComparison.CurrentCultureIgnoreCase))
+                    CreateAccount(store);
+                }
+                else if ("withdraw".Equals(instruction, StringComparison.CurrentCultureIgnoreCase))
                 {
+                    // Implement withdraw
+                    // 1. Get from the user an account Id and an amount
+                    // 2. Write tests to test the withdrawing functionality
+
                     // Get 
                     // todo
                     var accountId = 0;
@@ -59,6 +41,27 @@ namespace ConsoleApp1
                     withdraw.Execute(accountId, amount);
                 }
             }
+        }
+
+        private static void CreateAccount(AccountRepository store)
+        {
+            Console.WriteLine("What is your name?");
+            var name = Console.ReadLine();
+            Console.WriteLine("What is your email?");
+            var email = Console.ReadLine();
+
+            var user = new User
+            {
+                Name = name,
+                Email = email
+            };
+
+            var account = new Account
+            {
+                User = user
+            };
+
+            store.Update(account);
         }
     }
 }
