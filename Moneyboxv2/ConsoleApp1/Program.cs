@@ -33,12 +33,13 @@ namespace ConsoleApp1
                     // 1. Get from the user an account Id and an amount
                     // 2. Write tests to test the withdrawing functionality
 
-                    // Get 
-                    // todo
-                    var accountId = 0;
-                    var amount = 0m;
-                    // todo
-                    withdraw.Execute(accountId, amount);
+                    var accountId = 1;
+
+                    Console.WriteLine("Enter amount to withdraw");
+                    var amount = Console.ReadLine();
+
+                    withdraw.Execute(accountId, Convert.ToDecimal(amount));
+
                 }
             }
         }

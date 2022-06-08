@@ -50,5 +50,13 @@ namespace UnitTestProject1
             // Act & Assert
             Assert.Throws<Exception>(() => repo.GetAccountById(0));
         }
+
+        [Test]
+        public void IfUserCanWithdrawAboveLimit()
+        {
+            var amount = new Withdraw(10.2);
+
+            Assert.Throws<Exception>(() => CanWithdraw(amount));
+        }
     }
 }
