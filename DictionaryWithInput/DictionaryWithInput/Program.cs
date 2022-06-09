@@ -21,6 +21,30 @@ while (true)
     {
         Console.WriteLine("Enter contact name to view number");
         string contactName = Console.ReadLine();
-        Console.WriteLine("Number is: " + myPhoneBook[contactName]);
+        
+        if (myPhoneBook.ContainsKey(contactName))
+        {
+            Console.WriteLine("Number is: " + myPhoneBook[contactName]);
+        }
+        else
+        {
+            Console.WriteLine("Contact does not exist in phoonebook");
+        }
+    }
+    else if (action == "UPDATE")
+    {
+        Console.WriteLine("Enter contact name to update");
+        string contactName = Console.ReadLine();
+        Console.WriteLine("Enter new phone number");
+        string contactPhone = Console.ReadLine();
+        myPhoneBook[contactName] = contactPhone;
+        Console.WriteLine("Updated number is: " + myPhoneBook[contactName]);
+    }
+    else if (action == "DELETE")
+    {
+        Console.WriteLine("Enter contact name to delete");
+        string contactName = Console.ReadLine();
+        myPhoneBook.Remove(contactName);
+        Console.WriteLine("Contact deleted succesfully!");
     }
 }
