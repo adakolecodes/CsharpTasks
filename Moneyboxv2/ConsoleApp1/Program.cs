@@ -33,7 +33,9 @@ namespace ConsoleApp1
                     // 1. Get from the user an account Id and an amount
                     // 2. Write tests to test the withdrawing functionality
 
-                    var accountId = 1;
+                    Console.WriteLine("Enter your account Id");
+                    var accountIdStr = Console.ReadLine();
+                    var accountId = Convert.ToInt32(accountIdStr);
 
                     Console.WriteLine("Enter amount to withdraw");
                     var amount = Console.ReadLine();
