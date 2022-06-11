@@ -57,8 +57,31 @@ namespace CheckoutApp2
 
 
                 return totalCost;
+
+
+                //Product representation using class to represent product price, weight and type
+                Product a = new Product(50, 2, "Electronics");
+                Product b = new Product(30, 20, "Household Goods");
+                Product c = new Product(20, 10, "Groceries");
+                Product d = new Product(5, 1, "Groceries");
             }
-            //Console.ReadLine();
+        }
+
+        //Product class
+        class Product
+        {
+            public int _price;
+            public int _weight;
+            public string _type;
+
+            //Constructor
+            public Product(int price, int weight, string type)
+            {
+                this._price = price;
+                this._weight = weight;
+                this._type = type;
+            }
+
         }
     }
 }
