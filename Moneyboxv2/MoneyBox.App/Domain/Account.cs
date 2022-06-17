@@ -21,7 +21,7 @@ namespace Moneybox.App
     {
         public const decimal PayInLimit = 4000m;
         public const decimal LowBalanceThreshold = 500m;
-        public const decimal BalanceLimitForWithdraw = 0m;
+        public const decimal BalanceLimitForWithdraw = 8000m;
 
         public int Id { get; set; }
 
