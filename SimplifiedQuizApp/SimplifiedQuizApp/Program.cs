@@ -29,6 +29,7 @@ namespace SimplifiedQuizApp
                 totalgrade += CheckAnswer(question.Answer);
             }
 
+            //Display the totalgrade after answering all questions
             Console.WriteLine("YOUR RESULT IS: " + totalgrade);
 
 

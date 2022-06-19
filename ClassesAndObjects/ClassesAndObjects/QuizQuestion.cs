@@ -25,6 +25,7 @@ namespace ClassesAndObjects
             Answer = ans;
         }
 
+        //Default constructor that is used when no parameter is set
         public QuizQuestion()
         {
 
