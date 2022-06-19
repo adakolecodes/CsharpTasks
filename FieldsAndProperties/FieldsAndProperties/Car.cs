@@ -8,26 +8,39 @@ namespace FieldsAndProperties
 {
     internal class Car
     {
+        //FIELDS
         private int speed;
+        private int wheels;
 
-        public Car(int aSpeed)
-        {
-            SpeedProperty = aSpeed;
-        }
 
+        //PROPERTIES
+        //speed property
         public int SpeedProperty
         {
             get { return speed; } //Read
-            set {                 //Writable
-                if(value > 500)
+            set { speed = value; }//Writable
+        }
+
+
+        //wheels property with a condition
+        public int WheelsProperty
+        {
+            get { return wheels; }
+            set
+            {
+                if (value > 4)
                 {
-                    speed = 500;
+                    wheels = 4;
                 }
                 else
                 {
-                    speed = value;
+                    wheels = value;
                 }
             }
         }
+
+
+        //AutoProperty
+        public string carType { get; set; }
     }
 }
