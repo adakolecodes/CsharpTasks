@@ -15,11 +15,41 @@ namespace SimplifiedQuizApp
                 new QuizQuestion("How many minutes are in an hour?", "10", "60", "50", "70", "B")
             };
 
-            //Looping through our listQuestions to display the questions
+
+
+            //Instantiating our variable for getting totalgrade
+            int totalgrade = 0;
+
+
+
+            //Looping through our listQuestions to display the questions and also call the CheckAnswer method
             foreach (var question in listQuestions)
             {
                 AskQuestion(question);
+                totalgrade += CheckAnswer(question.Answer);
             }
+
+            Console.WriteLine("YOUR RESULT IS: " + totalgrade);
+
+
+
+            //Creating a method to check if the answer is correct
+            static int CheckAnswer(string correctAnswer)
+            {
+                string answer = Console.ReadLine();
+                if(answer == correctAnswer)
+                {
+                    Console.WriteLine("PASS! You have gotten 1 point");
+                    return 1;
+                }
+                else
+                {
+                    Console.WriteLine("FAILED");
+                    return 0;
+                }
+            }
+
+
 
             //Collecting each question from our list and parsing it into our AskQuestion method
             static void AskQuestion(QuizQuestion question)
