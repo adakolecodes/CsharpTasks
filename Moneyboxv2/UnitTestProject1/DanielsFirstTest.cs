@@ -71,6 +71,7 @@ namespace UnitTestProject1
             Assert.That(account.Balance, Is.EqualTo(950));
         }
 
+        //Can't withdraw below balance threshold
         [Test]
         public void CanWithdrawMoneyFromAccount2()
         {
@@ -87,12 +88,34 @@ namespace UnitTestProject1
             Assert.That(account.Balance, Is.EqualTo(80));
         }
 
-        //        [Test]
-        //        public void IfUserCanWithdrawAboveLimit()
-        //        {
-        //            var amount = new Withdraw(10.2);
-        //
-        //            Assert.Throws<Exception>(() => CanWithdraw(amount));
-        //        }
+        [Test]
+        public void IfAmountIsNegative()
+        {
+            var repo = new AccountRepository();
+            var account = new Account { Id = 10, Balance = 600 };
+            repo.Update(account);
+            var withdraw = new WithdrawMoney(repo, new NotificationService());
+
+            // act 
+            withdraw.Execute(10, -100);
+
+            //assert
+            Assert.That(account.Balance, Is.EqualTo(500));
+        }
+
+        [Test]
+        public void IfCanTransferAboveBalance()
+        {
+            var repo = new AccountRepository();
+            var account = new Account { Id = 10, Balance = 600 };
+            repo.Update(account);
+            var withdraw = new WithdrawMoney(repo, new NotificationService());
+
+            // act 
+            withdraw.Execute(10, 900);
+
+            //assert
+            Assert.That(account.Balance, Is.EqualTo(600));
+        }
     }
 }
