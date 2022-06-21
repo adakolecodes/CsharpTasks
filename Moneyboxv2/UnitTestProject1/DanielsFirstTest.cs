@@ -53,8 +53,7 @@ namespace UnitTestProject1
             Assert.Throws<Exception>(() => repo.GetAccountById(0));
         }
 
-        // write more tests
-        // fix null pointer bug david discovered
+
         [Test]
         public void CanWithdrawMoneyFromAccount()
         {
@@ -71,7 +70,7 @@ namespace UnitTestProject1
             Assert.That(account.Balance, Is.EqualTo(950));
         }
 
-        //Can't withdraw below balance threshold
+        // fix this test
         [Test]
         public void CanWithdrawMoneyFromAccount2()
         {
@@ -89,33 +88,59 @@ namespace UnitTestProject1
         }
 
         [Test]
-        public void IfAmountIsNegative()
+        public void IfAmountIsNegative_ThenThrowsException()
         {
             var repo = new AccountRepository();
-            var account = new Account { Id = 10, Balance = 600 };
+            const int accountId = 10;
+            var account = new Account { Id = accountId, Balance = 600 };
             repo.Update(account);
             var withdraw = new WithdrawMoney(repo, new NotificationService());
 
-            // act 
-            withdraw.Execute(10, -100);
+
+            // act & assert
+            Assert.Throws<InvalidOperationException>(() => withdraw.Execute(accountId, -100));
 
             //assert
-            Assert.That(account.Balance, Is.EqualTo(500));
+            Assert.That(account.Balance, Is.EqualTo(600)); // balance is unchanged
         }
 
         [Test]
-        public void IfCanTransferAboveBalance()
+        public void LambdaTest()
+        {
+            // lamda expression
+
+            var list = new List<int>(){10,20, 30, 40};
+            Func<int, int> sq = x => x * x;
+
+            var nwList = new List<int>();
+            foreach (var item in list)
+            {
+                var it = sq(item);
+                nwList.Add(it);
+            }
+
+            list.ForEach(x => Console.WriteLine(x));
+        }
+
+        public int Square(int x)
+        {
+            return x * x;
+        }
+
+        [Test]
+        public void IfWithdrawingMoreThanBalance_ThenThrowsException()
         {
             var repo = new AccountRepository();
-            var account = new Account { Id = 10, Balance = 600 };
+            const int accountId = 10;
+            var account = new Account { Id = accountId, Balance = 500 };
             repo.Update(account);
             var withdraw = new WithdrawMoney(repo, new NotificationService());
 
             // act 
-            withdraw.Execute(10, 900);
+            Assert.Throws<InvalidOperationException>(() => withdraw.Execute(accountId, 900));
 
             //assert
-            Assert.That(account.Balance, Is.EqualTo(600));
+            Assert.That(account.Balance, Is.EqualTo(500)); // balance is unchanged
         }
     }
 }
