@@ -3,20 +3,6 @@ using Moneybox.App.Domain;
 
 namespace Moneybox.App
 {
-    public class SavingsAccount: Account
-    {
-        public int NoOfWithdrawalsThisMonth { get; set; }
-
-        public override bool CanWithdraw(decimal amount)
-        {
-            if (NoOfWithdrawalsThisMonth > 1)
-                return false;
-
-            return base.CanWithdraw(amount);
-        }
-
-    }
-
     public class Account
     {
         public const decimal PayInLimit = 4000m;
@@ -57,14 +43,8 @@ namespace Moneybox.App
         }
 
         public bool IsLowBalance()
-        {
-            return WillBeLowBalanceAfterWithdrawal(0);
-        }
-
-        public bool WillBeLowBalanceAfterWithdrawal(decimal amount)
-        {
-            var newBalance = this.Balance - amount;
-            return newBalance < LowBalanceThreshold;
+        { 
+            return this.Balance < LowBalanceThreshold;
         }
     }
 }
