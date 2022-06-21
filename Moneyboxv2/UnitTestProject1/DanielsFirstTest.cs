@@ -71,12 +71,13 @@ namespace UnitTestProject1
         }
 
         // fix this test
+        //Error was due to the fact that you can't withdraw below the Low Balance Threshold
         [Test]
         public void CanWithdrawMoneyFromAccount2()
         {
             // setup
             var repo = new AccountRepository();
-            var account = new Account { Id = 10, Balance = 100 };
+            var account = new Account { Id = 10, Balance = 600 };
             repo.Update(account);
             var withdraw = new WithdrawMoney(repo, new NotificationService());
 
@@ -84,7 +85,7 @@ namespace UnitTestProject1
             withdraw.Execute(10, 20);
 
             // assert
-            Assert.That(account.Balance, Is.EqualTo(80));
+            Assert.That(account.Balance, Is.EqualTo(580));
         }
 
         [Test]
