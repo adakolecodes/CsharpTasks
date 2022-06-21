@@ -38,7 +38,7 @@ namespace SimplifiedQuizApp
             static int CheckAnswer(string correctAnswer)
             {
                 string answer = Console.ReadLine();
-                if(answer == correctAnswer)
+                if(answer.Equals(correctAnswer, StringComparison.InvariantCultureIgnoreCase))
                 {
                     Console.WriteLine("PASS! You have gotten 1 point");
                     return 1;
@@ -52,7 +52,7 @@ namespace SimplifiedQuizApp
 
 
 
-            //Collecting each question from our list and parsing it into our AskQuestion method
+            //Collecting each question from our list and parsing it into our AskQuestion method 
             static void AskQuestion(QuizQuestion question)
             {
                 Console.WriteLine(question.Question);
