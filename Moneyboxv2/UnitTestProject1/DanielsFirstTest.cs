@@ -70,7 +70,7 @@ namespace UnitTestProject1
             Assert.That(account.Balance, Is.EqualTo(950));
         }
 
-        // fix this test
+        // fix this test 
         //Error was due to the fact that you can't withdraw below the Low Balance Threshold
         [Test]
         public void CanWithdrawMoneyFromAccount2()
