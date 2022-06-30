@@ -77,7 +77,7 @@ namespace UnitTestProject1
         {
             // setup
             var repo = new AccountRepository();
-            var account = new Account { Id = 10, Balance = 600 };
+            var account = new Account { Id = 10, Balance = 100 };
             repo.Update(account);
             var withdraw = new WithdrawMoney(repo, new NotificationService());
 
@@ -85,7 +85,7 @@ namespace UnitTestProject1
             withdraw.Execute(10, 20);
 
             // assert
-            Assert.That(account.Balance, Is.EqualTo(580));
+            Assert.That(account.Balance, Is.EqualTo(80));
         }
 
         [Test]
