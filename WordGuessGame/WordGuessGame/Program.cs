@@ -37,8 +37,18 @@ namespace WordGuessGame
                     bool guessStatus = CheckInputtedWord(word.unscrambledWord);
                     if (guessStatus == false)
                     {
-                        Console.WriteLine($"Failed, You have 3 attemps ({i} failure)");
-                        Console.WriteLine();
+                        if(i < 3)
+                        {
+                            Console.WriteLine($"Failed ({i} failure)");
+                            Console.WriteLine();
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Failed ({i} failure)");
+                            Console.WriteLine($"Answer is: {word.unscrambledWord}");
+                            Console.WriteLine();
+                        }
+                        
                     }
                     else
                     {
@@ -70,7 +80,7 @@ namespace WordGuessGame
             //Method to display the scrambled word
             void DisplayWord(Word wordParam)
             {
-                Console.WriteLine("Unscramble the word below");
+                Console.WriteLine("Unscramble the word below (You have 3 attemps only)");
                 Console.WriteLine(wordParam.scrambledWord);
             }
 
