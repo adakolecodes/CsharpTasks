@@ -62,6 +62,13 @@ namespace WordGuessGame
 
             //Displaying total points earned by user
             Console.WriteLine($"Your total points earned is: {totalPoints}");
+            Console.WriteLine();
+
+            //Displaying all scrambled words with their unscrambled words
+            foreach(var word2 in listWords)
+            {
+                Console.WriteLine($"{word2.scrambledWord} = {word2.unscrambledWord}");
+            }
 
             //Method to check if the guessed word is correct
             bool CheckInputtedWord(string correctWord)
