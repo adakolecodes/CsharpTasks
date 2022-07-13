@@ -5,41 +5,44 @@ namespace Interfaces2
     {
         static void Main(string[] args)
         {
-            HondaAccord2015 honda1 = new HondaAccord2015();
-            honda1.FuelPowered();
+            Daughter daughter1 = new Daughter();
+            daughter1.Height();
 
-            ToyotaCamryMuscle toyota1 = new ToyotaCamryMuscle();
-            toyota1.ElectricPowered();
-            toyota1.FuelPowered();
+            Son son1 = new Son();
+            son1.Height();
+            son1.Weight();
         }
     }
 
     //Interfaces
     interface IFather
     {
-        class
+        void Height();
     }
 
     interface IMother
     {
-        void FuelPowered();
+        void Weight();
     }
 
     //Classes
     class Daughter : IFather
     {
-        
+        public void Height()
+        {
+            Console.WriteLine("Daughter inherited height from father");
+        }
     }
 
-    class ToyotaCamryMuscle : IElectric, IGas
+    class Son : IFather, IMother
     {
-        public void ElectricPowered()
+        public void Height()
         {
-            Console.WriteLine("This car is powered by Electricity");
+            Console.WriteLine("Son inherited height from father");
         }
-        public void FuelPowered()
+        public void Weight()
         {
-            Console.WriteLine("This car is powered by Fuel");
+            Console.WriteLine("Son also inherited weight from mother");
         }
     }
 }
