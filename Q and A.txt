@@ -1,0 +1,42 @@
+QUESTIONS:
+
+1. What is C#?
+2. Explain types of comment in C# with examples
+3. What is the difference between public, static, and void?
+4. What is an object?
+5. Define Constructors
+6. Describe the accessibility modifier “protected internal”.
+7. How can we sort the elements of the Array alphabetically?
+8. What is Console application?
+9. What are Properties in C#?
+10. What are fields in C#?
+
+
+11. What is a correct syntax to output "Hello World" in C#?
+12. Which data type is used to create a variable that should store text? Give example
+13. How do you create a variable with the numeric value 5? Give example
+14. How do you create a variable with the floating number 2.8? Give example
+15. The value of a string variable can be surrounded by single quotes. True or False?
+16. Which operator can be used to compare two values?
+17. To declare an array in C#, you define the variable type with?
+18. Array indexes start with?
+19. How do you create a method in C#?
+20. How do you call a method in C#?
+
+
+21. What is the correct way to create an object called human1 of Human class?
+22. In C#, it is possible to inherit fields and methods from one class to another. True or False?
+23. Which access modifier makes the code only accessible within the same class?
+24. Which keyword is used to return a value inside a method?
+25. What are the two keywords in a property?
+26. Which statement is used to stop a loop?
+
+
+
+Anwer:
+17. []
+23. Private
+26. break
+
+Double:
+double x = 2.8D;
