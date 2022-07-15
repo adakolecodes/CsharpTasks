@@ -8,11 +8,11 @@ namespace LinqProjection
 {
     internal class Technology
     {
-        public string _language { get; set; }
+        public string Language { get; set; }
 
         public Technology(string language)
         {
-            _language = language;
+            Language = language;
         }
     }
 }

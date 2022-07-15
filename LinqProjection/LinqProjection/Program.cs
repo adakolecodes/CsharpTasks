@@ -53,29 +53,29 @@ namespace LinqProjection
 			//Query syntax
 			//When looping through this, we don't reference the property anymore
 			var querySyntaxOp = (from emp in employees
-								 select emp._email).ToList();
+								 select emp.Email).ToList();
 
 
 			//Method syntax
-			var methodSyntaxOp = employees.Select(emp => emp._email).ToList();
+			var methodSyntaxOp = employees.Select(emp => emp.Email).ToList();
 
 
 			//SELECT MANY PROJECTION (Selecting only language by selecting programming - programming is a list of language)
 			//Query syntax
 			var querySyntax2 = (from emp in employees
-							   from lang in emp._programming
+							   from lang in emp.Programming
 							   select lang).ToList();
 			
 			
 			//Method syntax
-			var methodSyntax2 = employees.SelectMany(emp => emp._programming).ToList();
+			var methodSyntax2 = employees.SelectMany(emp => emp.Programming).ToList();
 
 
 
 			//Looping through our employees list to display all our employees
 			foreach (var employee in methodSyntax)
 			{
-				Console.WriteLine($"Employee Id: {employee._employeeId}, Full name: {employee._fullName}, Email: {employee._email}");
+				Console.WriteLine($"Employee Id: {employee.EmployeeId}, Full name: {employee.FullName}, Email: {employee.Email}");
 			}
 
 			Console.ReadKey();
