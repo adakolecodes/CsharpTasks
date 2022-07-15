@@ -1,23 +1,27 @@
 STUDENTS CSHARP PROJECTS
 
-WORD GUESS/UNSCRAMBLE APP
-GROUP1:
+WORD GUESS/UNSCRAMBLE APP (Group)
+GROUP1: https://github.com/Johnshady/CSharpCodes/tree/master/Samuel%20correction
 
-GROUP2:
+GROUP2: https://github.com/Ocheke/CSharpCodes/tree/master/BestScrabbleApp
 
-GROUP3:
+GROUP3: https://github.com/Izic111/CSharpCodes/tree/master/ScrambleApp
 
 
-LIBRARY APP:
-Esther:
+LIBRARY APP (Individually done):
+Esther: https://github.com/perfecta1000/Csharpcodes/tree/master/Libraryapp
 
-Abigail:
+Abigail: https://github.com/Ocheke/CSharpCodes/tree/master/LibraryApp2
 
-Isaac:
+Isaac: https://github.com/Izic111/CSharpCodes/tree/master/LibraryApp
 
-John:
+John: https://github.com/John28306/c-codes/tree/master/Library%20Project
 
-Patrick:
+Patrick: https://github.com/Pat3ick390s/CSharpCodes/tree/master/LibraryApp
 
-Samuel:
+Samuel: https://github.com/blaqcomrade/libaryapp
+
+Obed: Absent
+
+Shedrach: Absent
 

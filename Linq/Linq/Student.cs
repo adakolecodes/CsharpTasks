@@ -8,17 +8,17 @@ namespace Linq
 {
     internal class Student
     {
-        public string _firstName { get; set; }
-        public string _secondName { get; set; }
-        public string _currentClass { get; set; }
-        public double _resultAverage { get; set; }
+        public string FirstName { get; set; }
+        public string SecondName { get; set; }
+        public string CurrentClass { get; set; }
+        public double ResultAverage { get; set; }
 
         public Student(string firstName, string secondName, string currentClass, double resultAverage)
         {
-            _firstName = firstName;
-            _secondName = secondName;
-            _currentClass = currentClass;
-            _resultAverage = resultAverage;
+            FirstName = firstName;
+            SecondName = secondName;
+            CurrentClass = currentClass;
+            ResultAverage = resultAverage;
         }
     }
 }

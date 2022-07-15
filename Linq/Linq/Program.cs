@@ -23,17 +23,17 @@ namespace Linq
 			//WHERE OPERATION (Used for filtering through record)
 			//Linq Query syntax (Selects all students in Jss1)
 			var querySyntax = from std in students
-							  where std._currentClass == "Jss1"
+							  where std.CurrentClass == "Jss1"
 							  select std;
 
 
 			//Method syntax
-			var methodSyntax = students.Where(std => std._currentClass == "Jss1");
+			var methodSyntax = students.Where(std => std.CurrentClass == "Jss1");
 
 
 			//Mixed syntax (Gets the students with the maximum result average)
 			var mixedSyntax = (from std in students
-							   select std._resultAverage).Max();
+							   select std.ResultAverage).Max();
 			//We console writeline mixedSyntax because we have only one filtered record, thus we can't loop only one record
 			Console.WriteLine(mixedSyntax);
 
@@ -41,7 +41,7 @@ namespace Linq
 			//Looping through our students list to display all our students
 			foreach (var student in methodSyntax)
             {
-				Console.WriteLine($"First name: {student._firstName}, Second name: {student._secondName}, Current class: {student._currentClass}, Result average: {student._resultAverage}");
+				Console.WriteLine($"First name: {student.FirstName}, Second name: {student.SecondName}, Current class: {student.CurrentClass}, Result average: {student.ResultAverage}");
             }
 
 			Console.ReadKey();
