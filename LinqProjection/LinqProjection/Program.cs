@@ -35,10 +35,10 @@ namespace LinqProjection
 				}),
 			};
 
-			//PROJECTION
-			//Two types of projection methods are Select and SelectMany
+			//PROJECTION OPERATORS
+			//The two types of projection operators used to select records from the datasource are Select and SelectMany
 
-			//SELECT PROJECTION
+			//Select PROJECTION OPERATOR
 			//Query syntax
 			//(ToList method is only required if you wan't to store the selected records in the querySyntax variable, else ignore it).
 			var querySyntax = (from emp in employees
@@ -49,25 +49,26 @@ namespace LinqProjection
 			var methodSyntax = employees.ToList();
 
 
-			//Applying operations on select (Selecting only email)
-			//Query syntax
+			//Applying operations on select
+
+			//Query syntax (Selecting only email)
 			//When looping through this, we don't reference the property anymore
 			var querySyntaxOp = (from emp in employees
 								 select emp.Email).ToList();
 
 
-			//Method syntax
+			//Method syntax (Selecting only email)
 			var methodSyntaxOp = employees.Select(emp => emp.Email).ToList();
 
 
-			//SELECT MANY PROJECTION (Selecting only language by selecting programming - programming is a list of language)
-			//Query syntax
+			//SelectMany PROJECTION OPERATOR 
+			//Query syntax (Selecting only language by selecting programming - programming is a list of language)
 			var querySyntax2 = (from emp in employees
 							   from lang in emp.Programming
 							   select lang).ToList();
-			
-			
-			//Method syntax
+
+
+			//Method syntax (Selecting only language by selecting programming - programming is a list of language)
 			var methodSyntax2 = employees.SelectMany(emp => emp.Programming).ToList();
 
 
