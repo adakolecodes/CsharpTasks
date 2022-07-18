@@ -40,3 +40,30 @@ Anwer:
 
 Double:
 double x = 2.8D;
+
+
+TEST QUESTION ON LINQ
+1. What are the two types of filtering operators we have?
+2. What are the two types of projection operators we have?
+3a. Create a list with the combination of both string and int list items.
+3b. Using the method syntax, write a linq statement that will get only items in the list that are string.
+3c. Using the method syntax, write a link statement that will get only items in the list that are string whose length is greater than or equal to 5.
+4. What does the sorting operators do? and what are the five types of sorting operators we have?
+5. Create a list of unordered integers and order them in ascending and descending manner using the method syntax.
+6. Jointly sort any data source by OrderBy and ThenBy operators using the method syntax
+7. Using the method syntax, reverse the order of an array of 1 to 10.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
