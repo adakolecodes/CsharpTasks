@@ -20,14 +20,17 @@ namespace Linq
 				new Student("Hope", "Abel", "Sss1", 24.5),
 			};
 
-			//WHERE OPERATION (Used for filtering through record)
-			//Linq Query syntax (Selects all students in Jss1)
+			//FILTERING OPERATORS
+			//The two types of filtering operators used for filtering through record are the Where and OfType
+			
+			//Where FILTERING OPERATOR
+			//Query syntax (Select all students in Jss1)
 			var querySyntax = from std in students
 							  where std.CurrentClass == "Jss1"
 							  select std;
 
 
-			//Method syntax
+			//Method syntax (Select all students in Jss1)
 			var methodSyntax = students.Where(std => std.CurrentClass == "Jss1");
 
 
@@ -44,6 +47,28 @@ namespace Linq
 				Console.WriteLine($"First name: {student.FirstName}, Second name: {student.SecondName}, Current class: {student.CurrentClass}, Result average: {student.ResultAverage}");
             }
 
+
+			//OfType FILTERING OPERATOR
+
+			//Our dataSource
+			List<object> dataSource = new List<object>() {"Job", "Peace", "Mark", 1, 2, 3, 4, 5, 6 };
+
+
+			//Method syntax (This will get list items which are string. If string is changed to int, it will get only items in the list that are int)
+			var ofTypeMethodSyntax = dataSource.OfType<string>().ToList();
+
+
+			//Query syntax (This will return list items which are int)
+			var ofTypeQuerySyntax = (from x in dataSource
+									 where x is int
+									 select x).ToList();
+
+
+			//Using OfType and Where filtering operator together
+			//Method syntax (Get items in the list that are string whose length is greater than or equals to 5)
+			var ofTypeAndWhereMethodSyntax = dataSource.OfType<string>().Where(x => x.Length >= 5).ToList();
+
+			
 			Console.ReadKey();
 		}
 	}
