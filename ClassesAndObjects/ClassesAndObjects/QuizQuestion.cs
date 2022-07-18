@@ -8,21 +8,21 @@ namespace ClassesAndObjects
 {
     internal class QuizQuestion
     {
-        public string Question { get; set; }
-        public string OptionA { get; set; }
-        public string OptionB { get; set; }
-        public string OptionC { get; set; }
-        public string OptionD { get; set; }
-        public string Answer { get; set; }
+        public string _question;
+        public string _optionA;
+        public string _optionB;
+        public string _optionC;
+        public string _optionD;
+        public string _answer;
 
         public QuizQuestion(string quest, string optA, string optB, string optC, string optD, string ans)
         {
-            Question = quest;
-            OptionA = optA;
-            OptionB = optB;
-            OptionC = optC;
-            OptionD = optD;
-            Answer = ans;
+            _question = quest;
+            _optionA = optA;
+            _optionB = optB;
+            _optionC = optC;
+            _optionD = optD;
+            _answer = ans;
         }
 
         //Default constructor that is used when no parameter is set
