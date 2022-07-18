@@ -6,7 +6,7 @@ namespace SimplifiedQuizApp
     {
         static void Main(string[] args)
         {
-            //Storing quiz questions in a list
+            //Storing quiz questions in a list - Creating a list to store our quizquestion objects
             List<QuizQuestion> listQuestions = new List<QuizQuestion>()
             {
                 new QuizQuestion("How many days are in a week?", "7", "6", "8", "2", "A"),
