@@ -38,7 +38,7 @@ namespace LinqQuantifier
 
 
 
-            //QUANTIFIER OPERATORS (Used on a data source to check if an element, some elements or all elements of the data source satisfies a condition)
+            //QUANTIFIER OPERATORS (Used on a data source to check if an element, some elements, or all elements of the data source satisfies a condition)
             //All the methods in the quantifier opperation returns a boolean value
 
             //All OPERATOR (Checks whether all the elements of a data source satisfy a condition, if all satisfies it returns true, if all does'nt it returns false)
