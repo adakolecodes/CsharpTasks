@@ -47,5 +47,18 @@ namespace UnitTestProject1
             Assert.AreEqual(800, account.Balance);
             Assert.AreEqual(200, otherAccount.Balance);
         }
+
+        [TestMethod]
+        public void When_Balance_Is_Low_Return_True()
+        {
+            //Arrange
+            var account = new Account(450);
+
+            //Act
+            var result = account.BalanceIsLow();
+
+            //Assert
+            Assert.IsTrue(result);
+        }
     }
 }
