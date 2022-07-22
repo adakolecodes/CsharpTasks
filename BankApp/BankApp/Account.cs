@@ -52,5 +52,17 @@ namespace BankApp
             WithdrawMoney(amount);
             otherAccount.AddMoney(amount);
         }
+
+        public bool BalanceIsLow()
+        {
+            if(Balance <= 500)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
