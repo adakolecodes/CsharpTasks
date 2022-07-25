@@ -54,6 +54,86 @@ TEST QUESTION ON LINQ
 7. Using the method syntax, reverse the order of an array of 1 to 10.
 
 
+TEST QUESTIONS ON WORKING WITH FILES
+1. How do we write a path to a directory
+
+2. How do we read all the subfolders in a root directory
+
+3. How do we read all the sub-subfolders in a root directory
+
+4. How do we read all the files in a top directory
+
+5. How do we read all the files in a top directory and all sub folders
+
+6. What method gets us only the file name without the path to the file?
+
+7. How do we get the size of a file?
+
+8. What is the method used to check if a directory exists in a path and what data type does it return?
+
+9. What is the method used to create a directory?
+
+
+
+
+
+ANSWERS:
+1. string path = @"path here";
+
+2. string[] dirs = Directory.GetDirectories(path);
+
+3. string[] dirs = Directory.GetDirectories(path, "*", SearchOption.AllDirectories);
+
+4. string[] files = Directory.GetFiles(path, "*.*", SearchOption.TopDirectoryOnly);
+
+Same as:
+
+string[] files = Directory.GetFiles(path);
+
+5. string[] files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
+
+6. Path.GetFileName(file);
+
+7. var info = new FileInfo(file)
+info.length
+
+8. Directory.Exists(path);
+
+9. Directory.CreateDirectory(path);
+
+
+
+
+
+EXTRAS
+
+10. How do we copy a file to another directory, with an overwrite set to false. Wrap your code in a try catch block to display a message when a file with same name already exists.
+
+
+
+
+
+
+
+C# FILE MOVER APP PROJECT
+
+Write a program to move all images in your Downloads folder to an Images subfolder within the Downloads folder.
+
+Hint: To get the full path of your Downloads folder go to Local Disk, Users, Students, Downloads. Copy the path from the path tab above.
+
+REQUIRED:
+
+1. Upon running your app, Images subfolder should be automatically created if it does not exist.
+
+2. If no image file exists in the Downloads folder, prompt the user with associated message.
+
+3. If an image in the Downloads folder has same name with an image in the Images folder an exception error is thrown thereby causing the app to crash. Handle this exception with the appropriate block to prevent the app from crashing when such condition of similarity in name is present.
+
+BEST OF LUCK!!
+
+
+
+
 
 
 
