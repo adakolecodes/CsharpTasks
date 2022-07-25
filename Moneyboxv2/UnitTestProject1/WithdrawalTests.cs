@@ -121,5 +121,26 @@ namespace UnitTestProject1
             //assert
             Assert.That(account.Balance, Is.EqualTo(500)); // balance is unchanged
         }
+
+
+        [Test]
+        public void CanTransferMoneyToAnotherAccount()
+        {
+            var repo1 = new AccountRepository();
+            var repo2 = new AccountRepository();
+            const int fromAccountId = 5;
+            const int toAccountId = 7;
+            var fromAccount = new Account { Id = fromAccountId, Balance = 500 };
+            var toAccount = new Account { Id = toAccountId};
+            repo1.Update(fromAccount);
+            repo2.Update(toAccount);
+            var transfer = new TransferMoney(repo2, new NotificationService());
+
+            // act 
+            Assert.Throws<InvalidOperationException>(() => transfer.Execute(fromAccountId, toAccountId, 100));
+
+            //assert
+            Assert.That(toAccount.Balance, Is.EqualTo(100));
+        }
     }
 }
