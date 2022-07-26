@@ -21,7 +21,20 @@ Patrick: https://github.com/Pat3ick390s/CSharpCodes/tree/master/LibraryApp
 
 Samuel: https://github.com/blaqcomrade/libaryapp
 
-Obed: Absent
+Obed: Absent https://github.com/johnshady
 
 Shedrach: Absent
+
+
+LINQ TEST
+Abigail: https://github.com/Ocheke/CSharpCodes/tree/master/LinqAssignment/LinqAssignment
+Esther: https://github.com/perfecta1000/Csharpcodes/tree/master/testonvideo/testonvideo
+Samuel: https://github.com/blaqcomrade/CSharpCodes/tree/master/test/test
+Patrick: https://github.com/Pat3ick390s/CSharpCodes/tree/master/LinqAssignment/LinqAssignment
+
+John:
+Shedrach:
+Micheal:
+Obed: Remove comment
+
 
