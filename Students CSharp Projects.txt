@@ -23,18 +23,42 @@ Samuel: https://github.com/blaqcomrade/libaryapp
 
 Obed: Absent https://github.com/johnshady
 
-Shedrach: Absent
+Shedrach: Absent http://github.com/shedrack-ogbole
 
 
 LINQ TEST
 Abigail: https://github.com/Ocheke/CSharpCodes/tree/master/LinqAssignment/LinqAssignment
 Esther: https://github.com/perfecta1000/Csharpcodes/tree/master/testonvideo/testonvideo
 Samuel: https://github.com/blaqcomrade/CSharpCodes/tree/master/test/test
-Patrick: https://github.com/Pat3ick390s/CSharpCodes/tree/master/LinqAssignment/LinqAssignment
+Patrick: https://github.com/Pat3ick390s/C-Codes/tree/master/LinqAssignment/LinqAssignment
+John: https://github.com/John28306/c-codes/tree/master/Linq%20test/Linq%20test
+Micheal: https://github.com/Isamamichael/C-codes/tree/master/LinqAssignment/LinqAssignment
+Shedrach: https://github.com/Shedrack-Ogbole/MyCSharpCodes/tree/master/LinqAssignment/LinqAssignment
+Isaac: https://github.com/Izic111/CSharpCodes/tree/master/ClassWork/ClassWork
 
-John:
-Shedrach:
-Micheal:
 Obed: Remove comment
+
+
+
+FILEMOVERAPP PROJECT
+Esther: https://github.com/perfecta1000/Csharpcodes/tree/master/FileMoverApp1/FileMoverApp1
+John: https://github.com/John28306/c-codes/tree/master/Files%20In%20C%20Sharp%20Project/Files%20In%20C%20Sharp%20Project
+Michael: https://github.com/Isamamichael/C-codes/tree/master/FileMoverApp/FileMoverApp
+Samuel: https://github.com/blaqcomrade/CSharpCodes/tree/master/FileMoverApp2/FileMoverApp2
+Isaac: https://github.com/Izic111/CSharpCodes/tree/master/filesystem/filesystem
+Patrick: https://github.com/Pat3ick390s/C-Codes/tree/master/FileMoverApplication/FileMoverApplication
+Shadrach: https://github.com/Shedrack-Ogbole/MyCSharpCodes/tree/master/MoveFileApp2/MoveFileApp2
+
+Abigail: Absent
+Obed: Absent
+
+
+
+
+
+
+
+
+
 
 
