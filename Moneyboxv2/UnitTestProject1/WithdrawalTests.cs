@@ -89,6 +89,7 @@ namespace UnitTestProject1
             mockNotificationSvc.Verify(x => x.NotifyFundsLow("test@a.co.uk"), Times.Exactly(1));
         }
 
+        // Remove 
         [Test]
         public void IfAmountIsNegative_ThenThrowsException()
         {
@@ -126,21 +127,23 @@ namespace UnitTestProject1
         [Test]
         public void CanTransferMoneyToAnotherAccount()
         {
-            var repo1 = new AccountRepository();
-            var repo2 = new AccountRepository();
+            var fakeRepo = new Mock<IAccountRepository>();
             const int fromAccountId = 5;
             const int toAccountId = 7;
             var fromAccount = new Account { Id = fromAccountId, Balance = 500 };
-            var toAccount = new Account { Id = toAccountId};
-            repo1.Update(fromAccount);
-            repo2.Update(toAccount);
-            var transfer = new TransferMoney(repo2, new NotificationService());
+            var toAccount = new Account { Id = toAccountId, Balance = 0 };
+
+            fakeRepo.Setup(ar => ar.GetAccountById(fromAccountId)).Returns(fromAccount);
+            fakeRepo.Setup(ar => ar.GetAccountById(toAccountId)).Returns(toAccount);
+            
+            var transfer = new TransferMoney(fakeRepo.Object, new NotificationService());
 
             // act 
-            Assert.Throws<InvalidOperationException>(() => transfer.Execute(fromAccountId, toAccountId, 100));
+            transfer.Execute(fromAccountId, toAccountId, 100);
 
             //assert
             Assert.That(toAccount.Balance, Is.EqualTo(100));
+            Assert.That(fromAccount.Balance, Is.EqualTo(400));
         }
     }
 }
