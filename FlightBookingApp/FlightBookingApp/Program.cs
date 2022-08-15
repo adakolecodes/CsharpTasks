@@ -110,6 +110,10 @@ namespace FlightBookingApp
                         Console.WriteLine($"First Name: {passenger.FirstName}, Surname: {passenger.Surname}, Passport number: {passenger.PassportNumber}");
                     }
                 }
+                else
+                {
+                    Console.WriteLine("Please select a valid option");
+                }
             }
         }
     }
