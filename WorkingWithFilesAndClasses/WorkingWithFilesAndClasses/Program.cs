@@ -39,8 +39,8 @@ namespace WorkingWithFilesAndClasses
 
                 //Adding the created object to our list
                 contacts.Add(contact);
-
                 Console.WriteLine($"Name: {contact.Name}, Number: {contact.Number}");
+
             }
 
             Console.ReadLine();
