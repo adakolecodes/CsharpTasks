@@ -134,6 +134,12 @@ BEST OF LUCK!!
 
 
 
+FLIGHT BOOKING APP PROJECT
+3 classes: Plane (Name, Aircraft No., No of seats), Flight (Date, Start, End, List of passengers, Plane), Passenger (First Name, Surname, Passport No.)
+
+
+
+
 
 
 
