@@ -134,8 +134,18 @@ BEST OF LUCK!!
 
 
 
-FLIGHT BOOKING APP PROJECT
-3 classes: Plane (Name, Aircraft No., No of seats), Flight (Date, Start, End, List of passengers, Plane), Passenger (First Name, Surname, Passport No.)
+AIRLINE RESERVATION SYSTEM PROJECT
+Create an app that does the following
+1. Have an object list of Planes
+2. Register a passengers
+3. Add a flight
+4. Add a passenger to a flight
+5. View a flight detail and display list of all passengers on that flight
+
+CLASSES TO HAVE:
+- Plane (Name, Aircraft No., No of seats)
+- Passenger (First Name, Surname, Passport No.)
+- Flight (Flight No., Takeoff, Destination, Date of flight, List of passengers, Plane)
 
 
 
