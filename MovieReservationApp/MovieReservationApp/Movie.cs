@@ -8,10 +8,10 @@ namespace MovieReservationApp
 {
     internal class Movie
     {
-        //public Movie()
-        //{
-        //    Viewers = new List<Viewer>();
-        //}
+        public Movie()
+        {
+            Viewers = new List<Viewer>();
+        }
         public string MovieTitle { get; set; }
 
         public string DateOfShow { get; set; }
