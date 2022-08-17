@@ -37,9 +37,14 @@ namespace AirlineReservationSystem
                     var passportNumber = split[2];
 
                     // Add it to dictionary of passengers
-                    passengers.Add(passportNumber, new Passenger { FirstName = firstName, Surname = surname, PassportNumber = passportNumber });
-
-                    Console.WriteLine("Passenger added successfully");
+                    try
+                    {
+                        passengers.Add(passportNumber, new Passenger { FirstName = firstName, Surname = surname, PassportNumber = passportNumber });
+                        Console.WriteLine("Passenger added successfully");
+                    }catch(Exception err)
+                    {
+                        Console.WriteLine(err.Message);
+                    }
                     //Console.WriteLine($"First name: {passengers[passportNumber].FirstName}, Surname: {passengers[passportNumber].Surname}, Passport no: {passengers[passportNumber].PassportNumber}");
                 }
                 else if (input == "2")
@@ -103,13 +108,19 @@ namespace AirlineReservationSystem
                     // Display flight details and passenger list
                     Console.Write("Enter flight number: ");
                     var flightNumber = int.Parse(Console.ReadLine());
-                    var flight = flights.Where(x => x.FlightNumber == flightNumber).First();
-                    Console.WriteLine("FLIGHT DETAILS");
-                    Console.WriteLine($"Flight number: {flight.FlightNumber}, Takeoff: {flight.Takeoff}, Destination: {flight.Destination}, Date: {flight.Date}, Plane: {flight.Plane.Name}");
-                    Console.WriteLine("FLIGHT PASSENGERS");
-                    foreach (var passenger in flight.Passengers)
+                    try
                     {
-                        Console.WriteLine($"First Name: {passenger.FirstName}, Surname: {passenger.Surname}, Passport number: {passenger.PassportNumber}");
+                        var flight = flights.Where(x => x.FlightNumber == flightNumber).First();
+                        Console.WriteLine("FLIGHT DETAILS");
+                        Console.WriteLine($"Flight number: {flight.FlightNumber}, Takeoff: {flight.Takeoff}, Destination: {flight.Destination}, Date: {flight.Date}, Plane: {flight.Plane.Name}");
+                        Console.WriteLine("FLIGHT PASSENGERS");
+                        foreach (var passenger in flight.Passengers)
+                        {
+                            Console.WriteLine($"First Name: {passenger.FirstName}, Surname: {passenger.Surname}, Passport number: {passenger.PassportNumber}");
+                        }
+                    }catch(Exception err)
+                    {
+                        Console.WriteLine(err.Message);
                     }
                 }
                 else
