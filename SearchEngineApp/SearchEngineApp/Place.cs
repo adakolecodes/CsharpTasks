@@ -11,5 +11,12 @@ namespace SearchEngineApp
         public string Town { get; set; }
         public string State { get; set; }
         public string Country { get; set; }
+
+        public Place(string town, string state, string country)
+        {
+            Town = town;
+            State = state;
+            Country = country;
+        }
     }
 }
