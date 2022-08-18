@@ -14,9 +14,14 @@ namespace SearchEngineApp
 
         public Place(string town, string state, string country)
         {
-            Town = town;
-            State = state;
-            Country = country;
+            Town = town.Trim();
+            State = state.Trim();
+            Country = country.Trim();
+        }
+
+        public override string ToString()
+        {
+            return $"Town: {Town}, State: {State}, Country {Country}";
         }
     }
 }
