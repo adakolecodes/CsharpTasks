@@ -32,24 +32,7 @@ Enter:
                 }
                 else if (input == "4")
                 {
-                    // Display flight details and passenger list
-                    Console.Write("Enter flight number: ");
-                    var flightNumber = int.Parse(Console.ReadLine());
-                    try
-                    {
-                        var flight = flights.Where(x => x.FlightNumber == flightNumber).First();
-                        Console.WriteLine("FLIGHT DETAILS");
-                        Console.WriteLine($"Flight number: {flight.FlightNumber}, Takeoff: {flight.Takeoff}, Destination: {flight.Destination}, Date: {flight.Date}, Plane: {flight.Plane.Name}");
-                        Console.WriteLine("FLIGHT PASSENGERS");
-                        foreach (var passenger in flight.Passengers)
-                        {
-                            Console.WriteLine($"First Name: {passenger.FirstName}, Surname: {passenger.Surname}, Passport number: {passenger.PassportNumber}");
-                        }
-                    }
-                    catch (Exception err)
-                    {
-                        Console.WriteLine(err.Message);
-                    }
+                    ViewFlightManifest();
                 }
                 else
                 {
@@ -58,24 +41,6 @@ Enter:
             }
         }
 
-        private static void AddPassengerToFlight()
-        {
-            Console.Write("Enter passenger passport number: ");
-            var passportNumber = Console.ReadLine();
-            Console.Write("Enter flight number: ");
-            var flightNumber = int.Parse(Console.ReadLine());
-
-            var success = _airplaneService.AddPassengerToFlight(passportNumber, flightNumber);
-
-            if (success)
-            {
-                Console.WriteLine("Passenger added To flight");
-            }
-            else
-            {
-                Console.WriteLine("Passenger Unable to be added to flight");
-            }
-        }
 
         private static void AddPassenger()
         {
@@ -86,7 +51,7 @@ Enter:
             var surname = split[1];
             var passportNumber = split[2];
 
-            _airplaneService.AddPassenger(firstName, surname, passportNumber);
+            _airplaneService.AddPassengerMethod(firstName, surname, passportNumber);
             Console.WriteLine($"Added passenger with passport number {passportNumber}");
         }
 
@@ -94,7 +59,7 @@ Enter:
         {
             Console.WriteLine("Which plane would you like to create a flight for? Enter Aircraft number");
             var aircraftNumber = int.Parse(Console.ReadLine());
-            var exists = _airplaneService.PlaneExists(aircraftNumber);;
+            var exists = _airplaneService.PlaneExistsMethod(aircraftNumber);
             if (!exists)
             {
                 Console.WriteLine("The plane has not been found.");
@@ -115,10 +80,48 @@ Enter:
                 Console.WriteLine("The Date is not readable");
                 return;
             }
-            _airplaneService.AddFlight(flightNumber, aircraftNumber, takeoff, destination, date)
+            _airplaneService.AddFlightMethod(flightNumber, aircraftNumber, takeoff, destination, date);
 
     
             Console.WriteLine("Flight created successfully");
+        }
+
+        private static void AddPassengerToFlight()
+        {
+            Console.Write("Enter passenger passport number: ");
+            var passportNumber = Console.ReadLine();
+            Console.Write("Enter flight number: ");
+            var flightNumber = int.Parse(Console.ReadLine());
+
+            var success = _airplaneService.AddPassengerToFlightMethod(passportNumber, flightNumber);
+
+            if (success)
+            {
+                Console.WriteLine("Passenger added To flight");
+            }
+            else
+            {
+                Console.WriteLine("Passenger Unable to be added to flight");
+            }
+        }
+
+        private static void ViewFlightManifest()
+        {
+            // Display flight details and passenger list
+            Console.Write("Enter flight number: ");
+            var flightNumber = int.Parse(Console.ReadLine());
+
+            var flight = _airplaneService.ViewFlightManifestMethod(flightNumber);
+
+            Console.WriteLine("FLIGHT DETAILS");
+            //Console.WriteLine($"Flight number: {flight.FlightNumber}, Takeoff: {flight.Takeoff}, Destination: {flight.Destination}, Date: {flight.Date}, Plane: {flight.Plane.Name}");
+            //Console.WriteLine("FLIGHT PASSENGERS");
+
+
+            //foreach (var passenger in flight.Passengers)
+            //{
+            //    Console.WriteLine($"First Name: {passenger.FirstName}, Surname: {passenger.Surname}, Passport number: {passenger.PassportNumber}");
+            //}
         }
     }
 
