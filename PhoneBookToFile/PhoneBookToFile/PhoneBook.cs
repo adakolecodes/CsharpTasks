@@ -7,6 +7,7 @@ using System.IO;
 
 namespace PhoneBookToFile
 {
+    // The reading and writing to a file must be in a new class
     internal class PhoneBook
     {
         Dictionary<string, string> contacts = new Dictionary<string, string>();
@@ -35,9 +36,15 @@ namespace PhoneBookToFile
         {
             contacts.Add(name, phoneNumber);
 
+            // Stream reader and writer need to be wrapped in a using.
+            // Otherwise No one else can access the file until your application stops
+            using (StreamWriter write = new StreamWriter(filePath))
+            {
+                write.Write(name);
+            }
 
-            StreamWriter write = new StreamWriter(filePath);
-            write.Write(name);
+            // better
+            // File.WriteAllLines();
             
             Console.WriteLine("Contact saved successfully!");
         }

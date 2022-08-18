@@ -28,7 +28,7 @@ namespace PhoneBookApp
                 var split = input.Split();
                 var command = split[0];
 
-                if (command == "STORE")
+                if (command.Equals("STORE", StringComparison.InvariantCultureIgnoreCase))
                 {
                     var name = split[1];
                     var phoneNumber = split[2];
@@ -38,7 +38,15 @@ namespace PhoneBookApp
                 else if(command == "VIEW"){
                     var name = split[1];
 
-                    contact.ViewContact(name);
+                    try
+                    {
+                        var result = contact.ViewContact(name);
+                        Console.WriteLine("The Number is:"  + result);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("The number is not found");
+                    }
                 }
             }
 

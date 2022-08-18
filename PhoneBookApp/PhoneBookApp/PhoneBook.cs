@@ -7,6 +7,7 @@ using System.IO;
 
 namespace PhoneBookApp
 {
+    // Remove the console write lines: Seperation of concerns
     internal class PhoneBook
     {
         Dictionary<string, string> contacts = new Dictionary<string, string>();
@@ -19,6 +20,7 @@ namespace PhoneBookApp
             }
             else
             {
+                // Not sure this try catch serves a purpose. What is point in catch
                 try
                 {
                     WriteContact(name, phoneNumber);
@@ -36,23 +38,14 @@ namespace PhoneBookApp
             Console.WriteLine("Contact saved successfully!");
         }
 
-        public void ViewContact(string name)
+        public string ViewContact(string name)
         {
             if (!contacts.ContainsKey(name))
             {
-                Console.WriteLine("This contact does not exist in the contact list");
+                throw new Exception("Not Found");
             }
-            else
-            {
-                try
-                {
-                    Console.WriteLine(contacts[name]);
-                }
-                catch(Exception err)
-                {
-                    Console.WriteLine(err);
-                }
-            }
+
+            return contacts[name];
         }
     }
 }

@@ -12,6 +12,7 @@ namespace AirlineReservationSystem
         {
             Passengers = new List<Passenger>();
         }
+
         public int FlightNumber { get; set; }
         public string Takeoff { get; set; }
         public string Destination { get; set; }
