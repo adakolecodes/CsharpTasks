@@ -3,21 +3,21 @@
     public class AirlineService
     {
         static List<Plane> _planes;
-        List<Flight> _flights;
         new Dictionary<string, Passenger> _passengers;
+        List<Flight> _flights;
 
         public AirlineService()
         {
-            _flights = new List<Flight>();
-            _passengers = new Dictionary<string, Passenger>();
-            _planes = new List<Plane> {
+            _planes = new List<Plane>(){
                 new Plane() { Name = "Nigerian Airways", AircraftNumber = 1320, NoOfSeats = 300 },
                 new Plane() { Name = "Dana Airline", AircraftNumber = 2543, NoOfSeats = 250 },
                 new Plane() { Name = "Overland Airways", AircraftNumber = 4321, NoOfSeats = 120 },
             };
+            _passengers = new Dictionary<string, Passenger>();
+            _flights = new List<Flight>();
         }
 
-        public void AddPassenger(string firstName, string surname, string passportNumber)
+        public void AddPassengerMethod(string firstName, string surname, string passportNumber)
         {
             var passenger = new Passenger
             {
@@ -30,7 +30,7 @@
             _passengers[passportNumber] = passenger;
         }
 
-        public bool PlaneExists(int aircraftNumber)
+        public bool PlaneExistsMethod(int aircraftNumber)
         {
             return _planes.Any(x => x.AircraftNumber == aircraftNumber);
 
@@ -52,7 +52,7 @@
             }
         }
 
-        public void AddFlight(int flightNumber, int aircraftNumber, string takeoff, string destination,
+        public void AddFlightMethod(int flightNumber, int aircraftNumber, string takeoff, string destination,
             DateTime date)
         {
             var plane = _planes.First(x => x.AircraftNumber == aircraftNumber);
@@ -66,7 +66,7 @@
             });
         }
 
-        internal bool AddPassengerToFlight(string passportNumber, int flightNumber)
+        public bool AddPassengerToFlightMethod(string passportNumber, int flightNumber)
         {
             if (!_passengers.ContainsKey(passportNumber))
                 return false;
@@ -78,6 +78,12 @@
             
             flight.Passengers.Add(passenger);
             return true;
+        }
+
+        public object ViewFlightManifestMethod(int flightNumber)
+        {
+            var flight = _flights.Where(x => x.FlightNumber == flightNumber).ToList().FirstOrDefault();
+            return flight;
         }
     }
 }
