@@ -13,11 +13,12 @@ namespace SearchEngineApp
             var path = @"C:\Users\danie\source\repos\Documents\TownStateCountryList.txt";
 
             var allPlaces = new FileReader();
-            allPlaces.GetPlaceNames(path);
 
+            allPlaces.GetPlaceNames(path);            
+            
             var places = new List<Place>();
 
-            places.Add();
+            places.Add(allPlaces);
 
             //Console.WriteLine($"Town: {allPlaces.Town}, State: {place.State}, Country: {place.Country}");
 
