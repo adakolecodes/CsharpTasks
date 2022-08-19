@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassGroupWorkAirlineReservationSystem2", "ClassGroupWorkAirlineReservationSystem2\ClassGroupWorkAirlineReservationSystem2.csproj", "{A74F515E-BD9A-4190-A6D4-025D02042F11}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A74F515E-BD9A-4190-A6D4-025D02042F11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A74F515E-BD9A-4190-A6D4-025D02042F11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A74F515E-BD9A-4190-A6D4-025D02042F11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A74F515E-BD9A-4190-A6D4-025D02042F11}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4ACE2AF8-A598-4A57-B8E9-F552BA32E6AB}
+	EndGlobalSection
+EndGlobal
