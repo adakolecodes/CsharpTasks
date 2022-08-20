@@ -66,6 +66,7 @@
             });
         }
 
+        // Why add Method to the method name. Pretty obvious it is a method no? :)
         public bool AddPassengerToFlightMethod(string passportNumber, int flightNumber)
         {
             if (!_passengers.ContainsKey(passportNumber))
@@ -80,8 +81,14 @@
             return true;
         }
 
+        // Why are you returning object?
+        // Inconsitent access modifiers error. Check out these answers:
+        // https://stackoverflow.com/questions/25260280/inconsistent-accessibility-error-parameter-is-less-accessible-than-method
+        // Last answer: hhttps://stackoverflow.com/questions/13660355/inconsistent-accessibility-property-type-is-less-accessible?rq=1
         public object ViewFlightManifestMethod(int flightNumber)
         {
+            // If doing FirstOrDefault you don't need ToList()
+            // I would do .First() instead as you want it to throw an exception if it can't find it. And catch the exception in Program.ViewFlightManifest
             var flight = _flights.Where(x => x.FlightNumber == flightNumber).ToList().FirstOrDefault();
             return flight;
         }

@@ -2,7 +2,8 @@
 {
     internal class Program
     {
-        static AirlineService _airplaneService = new AirlineService();
+        // Access modifiers: Go for the most restrictive you can get away with
+        private static AirlineService _airplaneService = new AirlineService();
 
         static void Main(string[] args)
         {
@@ -55,7 +56,8 @@ Enter:
             Console.WriteLine($"Added passenger with passport number {passportNumber}");
         }
 
-        public static void AddFlight()
+        // Access modifiers: Go for the most restrictive you can get away with
+        private static void AddFlight()
         {
             Console.WriteLine("Which plane would you like to create a flight for? Enter Aircraft number");
             var aircraftNumber = int.Parse(Console.ReadLine());
@@ -114,6 +116,8 @@ Enter:
             var flight = _airplaneService.ViewFlightManifestMethod(flightNumber);
 
             Console.WriteLine("FLIGHT DETAILS");
+
+            // Why is code commented out:
             //Console.WriteLine($"Flight number: {flight.FlightNumber}, Takeoff: {flight.Takeoff}, Destination: {flight.Destination}, Date: {flight.Date}, Plane: {flight.Plane.Name}");
             //Console.WriteLine("FLIGHT PASSENGERS");
 
