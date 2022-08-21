@@ -10,7 +10,7 @@ namespace SearchEngineApp
     {
         static void Main(string[] args)
         {
-            var path = @"C:\Dev\temp\PlaceNamesUkWithC.txt";
+            var path = @"C:\Users\danie\source\repos\Documents\TownStateCountryList.txt";
 
             var placeNamesService = new PlaceNamesService();
 
