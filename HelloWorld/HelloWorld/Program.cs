@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+//Console.WriteLine("Hello, World!");
 
 //string myname = "Daniel";
 //int age = 59;
@@ -40,22 +40,62 @@ Console.WriteLine("Hello, World!");
 
 
 
-Dictionary<int, string> customers = new Dictionary<int, string>();
-customers.Add(1, "Moses");
-customers.Add(2, "James");
-customers.Add(3, "Peace");
-customers.Add(4, "Faith");
+//Dictionary<int, string> customers = new Dictionary<int, string>();
+//customers.Add(1, "Moses");
+//customers.Add(2, "James");
+//customers.Add(3, "Peace");
+//customers.Add(4, "Faith");
 
-customers[1] = "Brandy";
-customers[5] = "Mabel";
-customers.Remove(1);
+//customers[1] = "Brandy";
+//customers[5] = "Mabel";
+//customers.Remove(1);
 
-Console.WriteLine(customers[3]);
-Console.WriteLine(customers.ContainsKey(3));
+//Console.WriteLine(customers[3]);
+//Console.WriteLine(customers.ContainsKey(3));
 
-foreach(var customer in customers)
+//foreach(var customer in customers)
+//{
+//    Console.WriteLine(customer);
+//    Console.WriteLine(customer.Key);
+//    Console.WriteLine(customer.Value);
+//}
+
+
+
+List<Student> students = new List<Student>()
 {
-    Console.WriteLine(customer);
-    Console.WriteLine(customer.Key);
-    Console.WriteLine(customer.Value);
+    new Student("John", "Doe", "Jss1", 34.2),
+    new Student("Jerry", "Mike", "Jss1", 62.1),
+    new Student("Jane", "Doe", "Jss1", 54.4),
+    new Student("Mike", "Peters", "Sss1", 44.5),
+    new Student("Hope", "Abel", "Sss1", 24.5),
+};
+
+
+var methodSyntax = students.Where(std => std.CurrentClass == "Jss1");
+
+
+foreach (var student in methodSyntax)
+{
+    Console.WriteLine($"First name: {student.FirstName}, Second name: {student.SecondName}, Current class: {student.CurrentClass}, Result average: {student.ResultAverage}");
+}
+
+
+
+
+
+public class Student
+{
+    public string FirstName { get; set; }
+    public string SecondName { get; set; }
+    public string CurrentClass { get; set; }
+    public double ResultAverage { get; set; }
+
+    public Student(string firstName, string secondName, string currentClass, double resultAverage)
+    {
+        FirstName = firstName;
+        SecondName = secondName;
+        CurrentClass = currentClass;
+        ResultAverage = resultAverage;
+    }
 }
