@@ -1,6 +1,12 @@
-﻿namespace AirlineReservationSystem
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AirlineReservationSystem
 {
-    internal class Program
+    public class Program
     {
         // Access modifiers: Go for the most restrictive you can get away with
         private static AirlineService _airplaneService = new AirlineService();
