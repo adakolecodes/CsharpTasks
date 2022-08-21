@@ -113,18 +113,19 @@ Enter:
             Console.Write("Enter flight number: ");
             var flightNumber = int.Parse(Console.ReadLine());
 
-            var flight = _airplaneService.ViewFlightManifestMethod(flightNumber);
+            IEnumerable<Flight> flight = _airplaneService.ViewFlightManifestMethod(flightNumber);
 
             Console.WriteLine("FLIGHT DETAILS");
+            foreach (var item in flight)
+            {
+                Console.WriteLine($"Flight number: {item.FlightNumber}, Takeoff: {item.Takeoff}, Destination: {item.Destination}, Date: {item.Date}, Plane: {item.Plane.Name}");
+            }
 
-            // Why is code commented out:
-            //Console.WriteLine($"Flight number: {flight.FlightNumber}, Takeoff: {flight.Takeoff}, Destination: {flight.Destination}, Date: {flight.Date}, Plane: {flight.Plane.Name}");
             //Console.WriteLine("FLIGHT PASSENGERS");
 
-
-            //foreach (var passenger in flight.Passengers)
+            //foreach (var passenger in flight)
             //{
-            //    Console.WriteLine($"First Name: {passenger.FirstName}, Surname: {passenger.Surname}, Passport number: {passenger.PassportNumber}");
+            //    Console.WriteLine($"First Name: {passenger}, Surname: {passenger.Surname}, Passport number: {passenger.PassportNumber}");
             //}
         }
     }
