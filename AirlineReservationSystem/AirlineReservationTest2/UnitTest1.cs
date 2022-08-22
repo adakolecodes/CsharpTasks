@@ -41,37 +41,26 @@ namespace AirlineReservationTest2
         }
 
         [Test]
-        public void AddingPassengerToFlightWhenFlightDoesNotExist_ThrowException()
+        public void CanAddPassengerToFlight()
         {
             //Act
             var airplaneService = new AirlineService();
 
             //Arrange
-            var passportNumber = "12345";
-            //List<Flight> flights = new List<Flight>();
-            //airplaneService.AddFlightMethod(11111, 1320, "Abuja", "Lagos", new DateTime(2020,02,04));
-            //flights.Add(new Flight()
-            //{
-            //    FlightNumber = 11111,
-            //    Takeoff = "Abuja",
-            //    Destination = "Lagos",
-            //    Date = new DateTime(2020, 02, 04),
-            //    Plane = new Plane()
-            //    {
-            //        Name = "Nigeria Airways",
-            //        AircraftNumber = 1320,
-            //        NoOfSeats = 200
-            //    }
-            //});
+            var flight = new Flight() { FlightNumber = 5421 };
+            var passenger = new Passenger() { PassportNumber = "1360" };
 
-            var flightNumber = 11111;
-
-            //var flight = flights.Where(x => x.FlightNumber == flightNumber).FirstOrDefault();
-            
-            var result = airplaneService.AddPassengerToFlightMethod(passportNumber, flightNumber);
+            var passportNumber = passenger.PassportNumber;
+            var flightNumber = flight.FlightNumber;
+            var result = new Flight()
+            {
+                FlightNumber = flightNumber,
+                Passengers = new Passenger() { PassportNumber = "1360" },
+                Takeoff = "Abuja"
+            };
 
             //Assert
-            Assert.IsFalse(result);
+            Assert.IsTrue(result);
         }
     }
 }
