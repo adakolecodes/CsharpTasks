@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassGroupWorkAirlineReservationSystem2
 {
-    internal class Passenger
+    public class Passenger
     {
         public string First_Name { get; set; }
         public string Last_Name { get; set; }

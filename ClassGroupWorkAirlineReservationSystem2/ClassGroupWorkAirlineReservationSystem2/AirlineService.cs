@@ -6,65 +6,81 @@ using System.Threading.Tasks;
 
 namespace ClassGroupWorkAirlineReservationSystem2
 {
-    internal class AirlineService
+    public class AirlineService
     {
-        List<Plane> plane;
-        List<Flight> flight;
-        Dictionary<long, Passenger> passenger;
+        List<Plane> planes;
+        List<Flight> flights;
+        Dictionary<long, Passenger> passengers;
 
 
          public AirlineService()
         {
-            plane = new List<Plane>()
+            planes = new List<Plane>()
             {
                 new Plane(){Name = "Emirates Airline", AirCraft_Number = 100023, NumberOfSeat = 700},
                 new Plane(){Name = "Nigeria Fly", AirCraft_Number = 100033, NumberOfSeat = 600},
                 new Plane(){Name = "The Eagle", AirCraft_Number = 100043, NumberOfSeat = 400}
             };
 
-             flight = new List<Flight>();
-             passenger = new Dictionary<long, Passenger>();
+             flights = new List<Flight>();
+             passengers = new Dictionary<long, Passenger>();
         }
 
         public void RegisterAPassenger(long phonenumber, string firstName, string lastName)
         {
-            var passengers = new Passenger() { First_Name=firstName, Last_Name=lastName, Passport_No=phonenumber};
-            passenger.Add(phonenumber, passengers);
-            
+            var passenger = new Passenger() { First_Name=firstName, Last_Name=lastName, Passport_No=phonenumber};
+            //passengers.Add(phonenumber, passenger);
+            passengers[phonenumber] = passenger;
+
         }
         public void AddAFlight(long flightNumber,string takeOff,string destination,string dateOfFlight,long aircraftNumber)
         {
-            var planes = plane.Where(x => x.AirCraft_Number == aircraftNumber).First();
-            if (planes == null)
+            var plane = planes.Where(x => x.AirCraft_Number == aircraftNumber).First();
+            if (plane == null)
             {
                 throw new Exception();
             }
             else
             {
-                var flights = new Flight()
+                var flight = new Flight()
                 {
                     Flight_Number = flightNumber,
                     TakeOff = takeOff,
                     Destination = destination,
                     Date_Of_Flight = dateOfFlight,
-                    Planes = planes
+                    Planes = plane
                 };
 
-                flight.Add(flights);
+                flights.Add(flight);
             }
+
+            //var plane = planes.First(x => x.AirCraft_Number == aircraftNumber);
+            //flights.Add(new Flight()
+            //{
+            //    Flight_Number = flightNumber,
+            //    TakeOff = takeOff,
+            //    Destination = destination,
+            //    Date_Of_Flight = dateOfFlight,
+            //    Planes = plane,
+            //});
         }
         public void AddAPassengerToAFlight(long passportNumber, long flightNumber)
         {
-            var flights = flight.Where(x => x.Flight_Number == flightNumber).FirstOrDefault();
-            var passengers = passenger[passportNumber];
-            if(flights==null)
-            {
-                throw new Exception();
-            }
-            else
-            {
-                flights.Passengers.Add(passengers);
-            }
+            var passenger = passengers[passportNumber];
+            var flight = flights.Where(x => x.Flight_Number == flightNumber).FirstOrDefault();
+
+            flight.Passengers.Add(passenger);
+
+            //if (!passengers.ContainsKey(passportNumber))
+            //    return false;
+
+            //var passenger = passengers[passportNumber];
+            //var flight = flights.Where(x => x.Flight_Number == flightNumber).FirstOrDefault();
+            //if (flight == null)
+            //    return false;
+
+            //flight.Passengers.Add(passenger);
+            //return true;
         }
 
     }

@@ -10,9 +10,10 @@ namespace ClassGroupWorkAirlineReservationSystem2
     {
         static void Main()
         {
+            AirlineService airlineService = new AirlineService();
+
             while (true)
             {
-                AirlineService airlineService = new AirlineService();
                 Console.WriteLine("[1] Add A Passenger.[2] Add A Flight. [3] Add a passenger to a flight.");
                 string op = Console.ReadLine();
                 if (op == "1")
@@ -59,7 +60,15 @@ namespace ClassGroupWorkAirlineReservationSystem2
                     var flightnumber = long.Parse(Console.ReadLine());
 
                     airlineService.AddAPassengerToAFlight(passportnumber, flightnumber);
-                    Console.WriteLine("PASSENGER HAVE BEEN ADDED TO THE FLIGHT.");
+                    Console.WriteLine("Passenger added To flight");
+                    //if (success)
+                    //{
+                    //    Console.WriteLine("Passenger added To flight");
+                    //}
+                    //else
+                    //{
+                    //    Console.WriteLine("Passenger Unable to be added to flight");
+                    //}
                 }
 
             }
