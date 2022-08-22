@@ -36,6 +36,20 @@ namespace AirlineReservationSystem
             _passengers[passportNumber] = passenger;
         }
 
+        public bool AddPassengerMethod2(string firstName, string surname, string passportNumber)
+        {
+            var passenger = new Passenger
+            {
+                FirstName = firstName,
+                Surname = surname,
+                PassportNumber = passportNumber
+            };
+
+            // Override if already in dictionary
+            _passengers[passportNumber] = passenger;
+            return true;
+        }
+
         public bool PlaneExistsMethod(int aircraftNumber)
         {
             return _planes.Any(x => x.AircraftNumber == aircraftNumber);
