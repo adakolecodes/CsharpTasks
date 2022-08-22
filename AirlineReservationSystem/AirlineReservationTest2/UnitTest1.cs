@@ -19,11 +19,10 @@ namespace AirlineReservationTest2
             var firstName = "John";
             var surname = "Doe";
             var passportNumber = "12345";
-            airplaneService.AddPassengerMethod(firstName, surname, passportNumber);
+            var result = airplaneService.AddPassengerMethod2(firstName, surname, passportNumber);
 
             //Assert
-            //Assert.AreEqual("12345", passportNumber);
-            Assert.AreEqual("12345", passportNumber);
+            Assert.IsTrue(result);
         }
 
         [Test]
