@@ -12,10 +12,10 @@ namespace AirlineReservationTest2
         [Test]
         public void Can_Add_Passenger()
         {
-            //Act
+            //Arrange
             var airplaneService = new AirlineService();
 
-            //Arrange
+            //Act
             var firstName = "John";
             var surname = "Doe";
             var passportNumber = "12345";
@@ -29,10 +29,10 @@ namespace AirlineReservationTest2
         [Test]
         public void IfPlaneDoesNotExists_ThrowException()
         {
-            //Act
+            //Arrange
             var airplaneService = new AirlineService();
 
-            //Arrange
+            //Act
             var aircraftNumber = 1360; //Aircraft number does not exists for any plane
             var result = airplaneService.PlaneExistsMethod(aircraftNumber);
 
@@ -43,21 +43,13 @@ namespace AirlineReservationTest2
         [Test]
         public void CanAddPassengerToFlight()
         {
-            //Act
+            //Arrange
             var airplaneService = new AirlineService();
 
-            //Arrange
-            var flight = new Flight() { FlightNumber = 5421 };
-            var passenger = new Passenger() { PassportNumber = "1360" };
-
-            var passportNumber = passenger.PassportNumber;
-            var flightNumber = flight.FlightNumber;
-            var result = new Flight()
-            {
-                FlightNumber = flightNumber,
-                Passengers = new Passenger() { PassportNumber = "1360" },
-                Takeoff = "Abuja"
-            };
+            //Act
+            airplaneService.AddPassengerMethod("John", "Doe", "12345");
+            airplaneService.AddFlightMethod(11111, 1320, "Abuja", "Lagos", new DateTime(2020, 02, 04));
+            var result = airplaneService.AddPassengerToFlightMethod("12345", 11111);
 
             //Assert
             Assert.IsTrue(result);
