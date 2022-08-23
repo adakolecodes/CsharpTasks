@@ -29,7 +29,9 @@ namespace SearchEngineApp
             {
                 Console.WriteLine(@"
 1 to display all places,
-2 to enter a given town
+2 to search by town,
+3 to search by state,
+4 to see duplicate towns
 ");
                 var option = Console.ReadLine();
                 if (option == "1")
@@ -38,6 +40,7 @@ namespace SearchEngineApp
                     {
                         Console.WriteLine($"Town: {place.Town}, State: {place.State}, Country {place.Country}");
                     }
+                    Console.WriteLine($"Total count is: {places.Count()}");
                 }
                 else if (option == "2")
                 {
@@ -51,6 +54,31 @@ namespace SearchEngineApp
                     {
                         Console.WriteLine(place);
                     }
+                    Console.WriteLine($"Total count is: {result.Count()}");
+                }
+                else if (option == "3")
+                {
+                    //Given a state name display a list of Towns and Countries it belongs to
+                    Console.WriteLine("Enter Name of State");
+                    var stateName = Console.ReadLine();
+
+                    var result = places.Where(x => x.State == stateName);
+
+                    foreach (var place in result)
+                    {
+                        Console.WriteLine(place);
+                    }
+                    Console.WriteLine($"Total count is: {result.Count()}");
+                }
+                else if (option == "4")
+                {
+                    var unique = places.GroupBy(x => x.Town).Where(x => x.Count() > 1).Select(x => x);
+
+                    foreach (var item in unique)
+                    {
+                        Console.WriteLine($"TOWN NAME: {item.Key}, DUPLICATE: {item.Count()}");
+                    }
+                    Console.WriteLine($"Total count is: {unique.Count()}");
                 }
             }
 

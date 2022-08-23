@@ -23,5 +23,10 @@ namespace SearchEngineApp
         {
             return $"Town: {Town}, State: {State}, Country {Country}";
         }
+
+        //public object RemoveBrackets()
+        //{
+        //    return {Split('(', ')')[0]}{Split('(', ')')[1]};
+        //}
     }
 }
