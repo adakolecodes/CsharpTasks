@@ -1,7 +1,6 @@
-﻿namespace SearchEngineApp
+﻿
+namespace SearchEngineApp
 {
-
-
     // You are not allowed to change this class
     public class PlaceNamesService
     {
@@ -35,5 +34,4 @@
         public string Country { get; }
         public string Postcode { get; }
     }
-
 }
