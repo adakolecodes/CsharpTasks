@@ -90,7 +90,8 @@ Result average: {methodSyntax.ResultAverage}");
 
 
 var letter = "Cam (Rhee)";
-var output = ($"{letter.Split('(', ')')[0]}{letter.Split('(', ')')[1]}");
+//var output = ($"{letter.Split('(', ')')[0]}{letter.Split('(', ')')[1]}");
+var output = letter.Replace("(", string.Empty).Replace(")", string.Empty);
 
 Console.WriteLine(output);
 
