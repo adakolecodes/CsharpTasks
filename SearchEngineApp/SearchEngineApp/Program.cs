@@ -10,20 +10,7 @@ namespace SearchEngineApp
     {
         static void Main(string[] args)
         {
-            var path = @"C:\Users\danie\source\repos\Documents\TownStateCountryList.txt";
-
-            var placeNamesService = new PlaceNamesService();
-
-            IEnumerable<PlaceNames> allPlaces = placeNamesService.GetPlaceNames(path);            
-            
-            var places = new List<Place>();
-
-            foreach (var item in allPlaces)
-            {
-                //Copied data from PlaceName class to Place class and storing it in the list of Place
-                var place = new Place(item.Name, item.County, item.Country);
-                places.Add(place);
-            }
+            var placeService = new PlaceService();
 
             while (true)
             {
@@ -36,11 +23,12 @@ namespace SearchEngineApp
                 var option = Console.ReadLine();
                 if (option == "1")
                 {
-                    foreach (var place in places)
+                    IEnumerable<Place> it = placeService.DisplayAllPlaces();
+                    foreach (var item in it)
                     {
-                        Console.WriteLine($"Town: {place.Town}, State: {place.State}, Country {place.Country}");
+                        Console.WriteLine($"Town: {item.Town}, State: {item.State}, Country {item.Country}");
                     }
-                    Console.WriteLine($"Total count is: {places.Count()}");
+                    Console.WriteLine($"Total count is: {it.Count()}");
                 }
                 else if (option == "2")
                 {
@@ -48,11 +36,11 @@ namespace SearchEngineApp
                     Console.WriteLine("Enter Name of Town");
                     var townName = Console.ReadLine();
 
-                    var result = places.Where(x => x.Town == townName);
+                    var result = placeService.SearchByTown(townName);
 
-                    foreach (var place in result)
+                    foreach (var item in result)
                     {
-                        Console.WriteLine(place);
+                        Console.WriteLine(item);
                     }
                     Console.WriteLine($"Total count is: {result.Count()}");
                 }
@@ -62,17 +50,17 @@ namespace SearchEngineApp
                     Console.WriteLine("Enter Name of State");
                     var stateName = Console.ReadLine();
 
-                    var result = places.Where(x => x.State == stateName);
+                    var result = placeService.SearchByState(stateName);
 
-                    foreach (var place in result)
+                    foreach (var item in result)
                     {
-                        Console.WriteLine(place);
+                        Console.WriteLine(item);
                     }
                     Console.WriteLine($"Total count is: {result.Count()}");
                 }
                 else if (option == "4")
                 {
-                    var unique = places.GroupBy(x => x.Town).Where(x => x.Count() > 1).Select(x => x);
+                    IEnumerable<IGrouping<string, Place>> unique = placeService.SeeDuplicateTowns();
 
                     foreach (var item in unique)
                     {
