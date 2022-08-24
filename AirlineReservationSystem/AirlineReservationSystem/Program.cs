@@ -125,6 +125,12 @@ Enter:
             foreach (var item in flight)
             {
                 Console.WriteLine($"Flight number: {item.FlightNumber}, Takeoff: {item.Takeoff}, Destination: {item.Destination}, Date: {item.Date}, Plane: {item.Plane.Name}");
+                
+                //List<Passenger> passengers = item.Passengers;
+                foreach(var passenger in item.Passengers)
+                {
+                    Console.WriteLine($"First Name: {passenger.FirstName}, Surname: {passenger.Surname}, Passport number: {passenger.PassportNumber}");
+                }
             }
 
             //Console.WriteLine("FLIGHT PASSENGERS");
