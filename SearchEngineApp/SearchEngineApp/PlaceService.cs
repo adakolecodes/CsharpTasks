@@ -22,7 +22,7 @@ namespace SearchEngineApp
             foreach (var item in allPlaces)
             {
                 //Copied data from PlaceNames class to Place class and storing it in the list of Place
-                var getPlace = new Place(item.Name, item.County, item.Country);
+                var getPlace = new Place(RemoveTextInBrackets(item.Name), item.County, item.Country);
                 _places.Add(getPlace);
             }
         }
