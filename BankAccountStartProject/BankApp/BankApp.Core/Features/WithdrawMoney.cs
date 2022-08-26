@@ -20,6 +20,9 @@ namespace BankApp.Core.Features
             var from = accountRepository.GetAccountById(fromAccountId);
 
             // ToDo
+            from.Withdraw(amount);
+
+            this.accountRepository.Update(from);
         }
     }
 }

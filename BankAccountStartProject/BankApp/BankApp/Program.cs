@@ -23,7 +23,13 @@ namespace MoneyBox.ConsoleApp
 
             while (true)
             {
-                Console.WriteLine("What do you want to do?");
+                Console.WriteLine(@"What do you want to do?
+- create
+- payin
+- withdraw
+- transfer
+- balance
+- notifications");
                 var instruction = Console.ReadLine();
                 if (instruction == "quit")
                 {
@@ -36,6 +42,14 @@ namespace MoneyBox.ConsoleApp
                 else if ("payin".Equals(instruction, StringComparison.CurrentCultureIgnoreCase))
                 {
                     PayIn(payInService);
+                }
+                else if ("withdraw".Equals(instruction, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    Withraw(withdrawService);
+                }
+                else if ("transfer".Equals(instruction, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    Transfer(transferService);
                 }
                 else if ("balance".Equals(instruction, StringComparison.CurrentCultureIgnoreCase))
                 {
@@ -63,7 +77,7 @@ namespace MoneyBox.ConsoleApp
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception: " + e);
+                Console.WriteLine("Exception: " + e.Message);
             }
         }
 
@@ -84,7 +98,52 @@ namespace MoneyBox.ConsoleApp
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception: " + e);
+                Console.WriteLine("Exception: " + e.Message);
+            }
+        }
+
+        static void Withraw(WithdrawMoney withdraw)
+        {
+            try
+            {
+                Console.WriteLine("Enter your account Id");
+                var accountIdStr = Console.ReadLine();
+                var accountId = Convert.ToInt32(accountIdStr);
+
+                Console.WriteLine("Enter amount to withdraw");
+                var amountStr = Console.ReadLine();
+                var amount = Convert.ToDecimal(amountStr);
+
+                withdraw.Execute(accountId, amount);
+                Console.WriteLine("Withdrawal successful");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: " + e.Message);
+            }
+        }
+
+        static void Transfer(TransferMoney transfer)
+        {
+            try
+            {
+                Console.WriteLine("Enter your account Id");
+                var fromAccountIdStr = Console.ReadLine();
+                var fromAccountId = Convert.ToInt32(fromAccountIdStr);
+                Console.WriteLine("Enter other account Id");
+                var toAccountIdStr = Console.ReadLine();
+                var toAccountId = Convert.ToInt32(toAccountIdStr);
+
+                Console.WriteLine("Enter amount to transfer");
+                var amountStr = Console.ReadLine();
+                var amount = Convert.ToDecimal(amountStr);
+
+                transfer.Execute(fromAccountId, toAccountId, amount);
+                Console.WriteLine("Transfer successful");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: " + e.Message);
             }
         }
 
@@ -105,7 +164,7 @@ namespace MoneyBox.ConsoleApp
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Exception: " + ex);
+                Console.WriteLine("Exception: " + ex.Message);
             }
         }
 

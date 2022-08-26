@@ -21,6 +21,15 @@ namespace BankApp.Core.Features
             var to = _accountRepository.GetAccountById(toAccountId);
 
             // ToDo
+            if (from.CanWithdraw(amount))
+                to.PayIn(amount);
+            from.Withdraw(amount);
+
+            if (from.IsLowBalance())
+                _notificationService.NotifyFundsLow(from.User.Email);
+
+            _accountRepository.Update(to);
+            _accountRepository.Update(from);
         }
     }
 }
