@@ -5,7 +5,7 @@ namespace BankApp.Core.Domain
     public class Account
     {
         public const decimal FraudulentActivityLimit = 100_000_000m;
-        public const decimal PayInLimit = 4000m;
+        public const decimal PayInLimit = 10000m;
         public const decimal LowBalanceThreshold = 500m;
         public const decimal BalanceLimitForWithdraw = 0m;
 
@@ -31,6 +31,8 @@ namespace BankApp.Core.Domain
         {
             if (!CanWithdraw(amount))
                 throw new InvalidOperationException("Insufficient funds to withdraw");
+            if (amount < 1)
+                throw new InvalidOperationException($"You cannot withdraw a zero or negative amount");
 
             Balance = Balance - amount;
             Withdrawn = Withdrawn + amount;
@@ -40,6 +42,8 @@ namespace BankApp.Core.Domain
         {
             if (amount > PayInLimit)
                 throw new InvalidOperationException($"You cannot pay in more than {PayInLimit} in a single transaction");
+            if (amount < 1)
+                throw new InvalidOperationException($"You cannot pay in a zero or negative amount");
 
             Balance = Balance + amount;
             PaidIn = PaidIn + amount;

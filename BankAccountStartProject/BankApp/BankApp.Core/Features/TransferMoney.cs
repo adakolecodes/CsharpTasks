@@ -23,10 +23,10 @@ namespace BankApp.Core.Features
             // ToDo
             if (from.CanWithdraw(amount))
                 to.PayIn(amount);
-            from.Withdraw(amount);
+                from.Withdraw(amount);
 
             if (from.IsLowBalance())
-                _notificationService.NotifyFundsLow(from.User.Email);
+                _notificationService.NotifyFundsLow(from);
 
             _accountRepository.Update(to);
             _accountRepository.Update(from);

@@ -22,6 +22,9 @@ namespace BankApp.Core.Features
             // ToDo
             from.Withdraw(amount);
 
+            if (from.IsLowBalance())
+                this.notificationService.NotifyFundsLow(from);
+
             this.accountRepository.Update(from);
         }
     }
