@@ -5,7 +5,7 @@ namespace BankApp.Core.Domain
     public class Account
     {
         public const decimal FraudulentActivityLimit = 100_000_000m;
-        public const decimal PayInLimit = 10000m;
+        public const decimal PayInLimit = 40000m;
         public const decimal LowBalanceThreshold = 500m;
         public const decimal BalanceLimitForWithdraw = 0m;
 
@@ -15,17 +15,17 @@ namespace BankApp.Core.Domain
         /// <summary>
         /// The current balance of the account
         /// </summary>
-        public decimal Balance { get; set; }
+        public decimal Balance { get; private set; }
 
         /// <summary>
         /// Positive number that keeps track of total that has been withdrawn from account
         /// </summary>
-        public decimal Withdrawn { get; set; }
+        public decimal Withdrawn { get; private set; }
 
         /// <summary>
         /// Positive number that keeps track of total that has been paid into account
         /// </summary>
-        public decimal PaidIn { get; set; }
+        public decimal PaidIn { get; private set; }
 
         public virtual void Withdraw(decimal amount)
         {
@@ -33,6 +33,8 @@ namespace BankApp.Core.Domain
                 throw new InvalidOperationException("Insufficient funds to withdraw");
             if (amount < 1)
                 throw new InvalidOperationException($"You cannot withdraw a zero or negative amount");
+            if (FraudulentActivityDectected())
+                throw new InvalidOperationException($"Fraudulent transaction detected, therefore you cannot proceed with this transaction");
 
             Balance = Balance - amount;
             Withdrawn = Withdrawn + amount;
@@ -44,6 +46,8 @@ namespace BankApp.Core.Domain
                 throw new InvalidOperationException($"You cannot pay in more than {PayInLimit} in a single transaction");
             if (amount < 1)
                 throw new InvalidOperationException($"You cannot pay in a zero or negative amount");
+            if(FraudulentActivityDectected())
+                throw new InvalidOperationException($"Fraudulent transaction detected, therefore you cannot proceed with this transaction");
 
             Balance = Balance + amount;
             PaidIn = PaidIn + amount;
