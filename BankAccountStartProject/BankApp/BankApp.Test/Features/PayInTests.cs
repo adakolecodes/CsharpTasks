@@ -17,7 +17,7 @@ namespace BankApp.Test.Features
 
             var mockAccountRepo = new Mock<IAccountRepository>();
             const int intoAccountId = 5;
-            var account = new Account { Id = intoAccountId, Balance = 700 };
+            var account = new Account { Id = intoAccountId };
             mockAccountRepo.Setup(x => x.GetAccountById(intoAccountId)).Returns(account);
 
             var deposit = new PayInMoney(mockAccountRepo.Object, mockNotificationService.Object);
@@ -26,7 +26,7 @@ namespace BankApp.Test.Features
             deposit.Execute(intoAccountId, 2000);
 
             // assert
-            Assert.That(account.Balance, Is.EqualTo(2700));
+            Assert.That(account.Balance, Is.EqualTo(2000));
         }
 
         // This test is failing fix it
@@ -38,7 +38,7 @@ namespace BankApp.Test.Features
 
             var myMock = new Mock<IAccountRepository>();
             const int intoAccountId = 5;
-            var account = new Account { Id = intoAccountId, Balance = 640 };
+            var account = new Account { Id = intoAccountId };
 
             myMock.Setup(x => x.GetAccountById(intoAccountId)).Returns(account);
 
@@ -48,7 +48,7 @@ namespace BankApp.Test.Features
             Assert.Throws<InvalidOperationException>(() => deposite.Execute(intoAccountId, -230));
 
             // assert
-            Assert.That(account.Balance, Is.EqualTo(640));
+            Assert.That(account.Balance, Is.EqualTo(0));
         }
 
         [Test]
@@ -59,17 +59,17 @@ namespace BankApp.Test.Features
 
             var myMock = new Mock<IAccountRepository>();
             const int intoAccountId = 5;
-            var account = new Account { Id = intoAccountId, Balance = 850 };
+            var account = new Account { Id = intoAccountId };
 
             myMock.Setup(x => x.GetAccountById(intoAccountId)).Returns(account);
 
             var deposite = new PayInMoney(myMock.Object, mockNotificationService.Object);
 
             // act 
-            Assert.Throws<InvalidOperationException>(() => deposite.Execute(intoAccountId, 6000));
+            Assert.Throws<InvalidOperationException>(() => deposite.Execute(intoAccountId, 45000));
 
             // assert
-            Assert.That(account.Balance, Is.EqualTo(850));
+            Assert.That(account.Balance, Is.EqualTo(0));
         }
     }
 }
