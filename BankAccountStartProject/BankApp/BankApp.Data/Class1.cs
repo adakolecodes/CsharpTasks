@@ -2,6 +2,6 @@
 {
     public class Class1
     {
-        //Scaffold-DbContext "data source=(LocalDB)\MSSQLLocalDB;initial catalog=Bank2;MultipleActiveResultSets=True;App=EntityFramework" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Scaffolded
+        //Scaffold-DbContext "data source=(LocalDB)\MSSQLLocalDB;initial catalog=Bank;MultipleActiveResultSets=True;App=EntityFramework" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Scaffolded
     }
 }

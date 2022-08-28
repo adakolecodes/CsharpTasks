@@ -15,17 +15,17 @@ namespace BankApp.Core.Domain
         /// <summary>
         /// The current balance of the account
         /// </summary>
-        public decimal Balance { get; private set; }
+        public decimal Balance { get; set; }
 
         /// <summary>
         /// Positive number that keeps track of total that has been withdrawn from account
         /// </summary>
-        public decimal Withdrawn { get; private set; }
+        public decimal Withdrawn { get; set; }
 
         /// <summary>
         /// Positive number that keeps track of total that has been paid into account
         /// </summary>
-        public decimal PaidIn { get; private set; }
+        public decimal PaidIn { get; set; }
 
         public virtual void Withdraw(decimal amount)
         {

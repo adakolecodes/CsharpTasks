@@ -5,27 +5,26 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace BankApp.Data.Scaffolded
 {
-    public partial class Bank2Context : DbContext
+    public partial class BankContext : DbContext
     {
-        public Bank2Context()
+        public BankContext()
         {
         }
 
-        public Bank2Context(DbContextOptions<Bank2Context> options)
+        public BankContext(DbContextOptions<BankContext> options)
             : base(options)
         {
         }
 
         public virtual DbSet<AccountDb> AccountDbs { get; set; } = null!;
         public virtual DbSet<Notification> Notifications { get; set; } = null!;
-        public virtual DbSet<User> Users { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("data source=(LocalDB)\\MSSQLLocalDB;initial catalog=Bank2;MultipleActiveResultSets=True;App=EntityFramework");
+                optionsBuilder.UseSqlServer("data source=(LocalDB)\\MSSQLLocalDB;initial catalog=Bank;MultipleActiveResultSets=True;App=EntityFramework");
             }
         }
 
@@ -37,15 +36,11 @@ namespace BankApp.Data.Scaffolded
 
                 entity.Property(e => e.Balance).HasColumnType("decimal(18, 2)");
 
+                entity.Property(e => e.Email).HasMaxLength(200);
+
                 entity.Property(e => e.PaidIn).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.Withdrawn).HasColumnType("decimal(18, 2)");
-
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.AccountDbs)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__AccountDb__UserI__29572725");
             });
 
             modelBuilder.Entity<Notification>(entity =>
@@ -53,15 +48,6 @@ namespace BankApp.Data.Scaffolded
                 entity.ToTable("Notification");
 
                 entity.Property(e => e.Email).HasMaxLength(200);
-            });
-
-            modelBuilder.Entity<User>(entity =>
-            {
-                entity.ToTable("User");
-
-                entity.Property(e => e.Email).HasMaxLength(200);
-
-                entity.Property(e => e.Name).HasMaxLength(200);
             });
 
             OnModelCreatingPartial(modelBuilder);
