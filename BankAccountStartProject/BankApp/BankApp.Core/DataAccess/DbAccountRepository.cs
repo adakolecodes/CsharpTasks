@@ -44,14 +44,19 @@ namespace BankApp.Core.DataAccess
         {
             using (var dbContext = new BankContext())
             {
-                var allAccounts = dbContext.AccountDbs.Select(x => x).ToList();
-                //return allAccounts;
+                return (IEnumerable<Account>)dbContext.AccountDbs.Select(x => x).ToList();
             }
         }
 
         public void Update(Account account)
         {
-            throw new NotImplementedException();
+            using (var dbContext = new BankContext())
+            {
+                var result = dbContext.AccountDbs.SingleOrDefault(x => x.Id == account.Id);
+
+                var acc = new Account();
+                acc.Id = account.Id;
+            }
         }
     }
 }
