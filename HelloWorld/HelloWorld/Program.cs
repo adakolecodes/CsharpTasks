@@ -74,19 +74,29 @@ List<Student> students = new List<Student>()
 };
 
 //This gives us the record of John Doe in Jss1
-var methodSyntax = students.Where(std => std.CurrentClass == "Jss1").First();
+//var methodSyntax = students.Where(std => std.CurrentClass == "Jss1").First();
 
-Console.WriteLine(@$"
-First name: {methodSyntax.FirstName}, 
-Second name: {methodSyntax.SecondName}, 
-Current class: {methodSyntax.CurrentClass}, 
-Result average: {methodSyntax.ResultAverage}");
+//Console.WriteLine(@$"
+//First name: {methodSyntax.FirstName}, 
+//Second name: {methodSyntax.SecondName}, 
+//Current class: {methodSyntax.CurrentClass}, 
+//Result average: {methodSyntax.ResultAverage}");
 
 
 //foreach (var student in methodSyntax)
 //{
 //    Console.WriteLine($"First name: {student.FirstName}, Second name: {student.SecondName}, Current class: {student.CurrentClass}, Result average: {student.ResultAverage}");
 //}
+
+var allStudents = students.ToList();
+
+foreach(var student in allStudents)
+{
+    Console.WriteLine($"Name: {student.FirstName} {student.SecondName}, Class: {student.CurrentClass}, Average: {student.ResultAverage}");
+}
+
+
+
 
 
 var letter = "Cam (Rhee)";
