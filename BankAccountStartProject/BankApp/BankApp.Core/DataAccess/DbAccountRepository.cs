@@ -31,20 +31,27 @@ namespace BankApp.Core.DataAccess
                 var result = dbContext.AccountDbs.SingleOrDefault(x => x.Id == accountId);
 
                 var account = new Account();
+                account.Email = result.Email;
                 account.Balance = result.Balance;
                 account.Withdrawn = result.Withdrawn;
                 account.PaidIn = result.PaidIn;
-
+                
+                return account;
             }
-
-            return null;
         }
 
         public IEnumerable<Account> GetAll()
         {
             using (var dbContext = new BankContext())
             {
-                return (IEnumerable<Account>)dbContext.AccountDbs.Select(x => x).ToList();
+                //transform the db object into your domain object
+                return dbContext.AccountDbs.Select(x => new Account()
+                {
+                    Email = x.Email,
+                    Balance = x.Balance,
+                    Withdrawn = x.Withdrawn,
+                    PaidIn = x.PaidIn
+                }).ToList();
             }
         }
 
@@ -55,7 +62,10 @@ namespace BankApp.Core.DataAccess
                 var result = dbContext.AccountDbs.SingleOrDefault(x => x.Id == account.Id);
 
                 var acc = new Account();
-                acc.Id = account.Id;
+                acc.Balance = account.Balance;
+                acc.Withdrawn = account.Withdrawn;
+                acc.PaidIn = account.PaidIn;
+                dbContext.SaveChanges();
             }
         }
     }
