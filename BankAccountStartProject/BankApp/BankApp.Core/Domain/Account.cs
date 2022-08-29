@@ -4,10 +4,10 @@ namespace BankApp.Core.Domain
 {
     public class Account
     {
-        public const decimal FraudulentActivityLimit = 100_000_000m;
-        public const decimal PayInLimit = 40000m;
-        public const decimal LowBalanceThreshold = 500m;
-        public const decimal BalanceLimitForWithdraw = 0m;
+        public const decimal _fraudulentActivityLimit = 100_000_000m;
+        public const decimal _payInLimit = 40000m;
+        public const decimal _lowBalanceThreshold = 500m;
+        public const decimal _balanceLimitForWithdraw = 0m;
 
         public int Id { get; set; }
         public string Email { get; set; }
@@ -42,9 +42,9 @@ namespace BankApp.Core.Domain
 
         public virtual void PayIn(decimal amount)
         {
-            if (amount > PayInLimit)
-                throw new InvalidOperationException($"You cannot pay in more than {PayInLimit} in a single transaction");
-            if (amount < 1)
+            if (amount > _payInLimit)
+                throw new InvalidOperationException($"You cannot pay in more than {_payInLimit} in a single transaction");
+            if (amount <= 0)
                 throw new InvalidOperationException($"You cannot pay in a zero or negative amount");
             if(FraudulentActivityDectected())
                 throw new InvalidOperationException($"Fraudulent transaction detected, therefore you cannot proceed with this transaction");
@@ -56,17 +56,17 @@ namespace BankApp.Core.Domain
         public virtual bool CanWithdraw(decimal amount)
         {
             var newBalance = Balance - amount;
-            return newBalance >= BalanceLimitForWithdraw;
+            return newBalance >= _balanceLimitForWithdraw;
         }
 
         public bool IsLowBalance()
         {
-            return Balance < LowBalanceThreshold;
+            return Balance < _lowBalanceThreshold;
         }
 
         public bool FraudulentActivityDectected()
         {
-            return PaidIn >= FraudulentActivityLimit;
+            return PaidIn >= _fraudulentActivityLimit;
         }
     }
 }
