@@ -30,11 +30,8 @@ namespace BankApp.Core.DataAccess
             {
                 var result = dbContext.AccountDbs.SingleOrDefault(x => x.Id == accountId);
 
-                var account = new Account();
-                account.Email = result.Email;
-                account.Balance = result.Balance;
-                account.Withdrawn = result.Withdrawn;
-                account.PaidIn = result.PaidIn;
+                var account = AccountFactory.ToAccount(result);
+
                 
                 return account;
             }
@@ -45,13 +42,7 @@ namespace BankApp.Core.DataAccess
             using (var dbContext = new BankContext())
             {
                 //transform the db object into your domain object
-                return dbContext.AccountDbs.Select(x => new Account()
-                {
-                    Email = x.Email,
-                    Balance = x.Balance,
-                    Withdrawn = x.Withdrawn,
-                    PaidIn = x.PaidIn
-                }).ToList();
+                return dbContext.AccountDbs.Select(x => AccountFactory.ToAccount(x)).ToList();
             }
         }
 
@@ -60,6 +51,11 @@ namespace BankApp.Core.DataAccess
             using (var dbContext = new BankContext())
             {
                 var result = dbContext.AccountDbs.SingleOrDefault(x => x.Id == account.Id);
+
+                if(result == null)
+                {
+                    throw new Exception($"Account with id {account.Id} not found");
+                }
 
                 result.PaidIn = account.PaidIn;
                 result.Withdrawn = account.Withdrawn;
