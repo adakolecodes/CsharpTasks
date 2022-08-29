@@ -61,10 +61,10 @@ namespace BankApp.Core.DataAccess
             {
                 var result = dbContext.AccountDbs.SingleOrDefault(x => x.Id == account.Id);
 
-                var acc = new Account();
-                acc.Balance = account.Balance;
-                acc.Withdrawn = account.Withdrawn;
-                acc.PaidIn = account.PaidIn;
+                result.PaidIn = account.PaidIn;
+                result.Withdrawn = account.Withdrawn;
+                result.Balance = account.Balance;
+
                 dbContext.SaveChanges();
             }
         }
