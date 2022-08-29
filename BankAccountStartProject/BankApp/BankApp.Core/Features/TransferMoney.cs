@@ -28,6 +28,11 @@ namespace BankApp.Core.Features
             if (from.IsLowBalance())
                 _notificationService.NotifyFundsLow(from);
 
+            if (from.FraudulentActivityDectected())
+            {
+                _notificationService.NotifyFraudlentActivity(from);
+            }
+
             if (to.FraudulentActivityDectected())
             {
                 _notificationService.NotifyFraudlentActivity(to);
