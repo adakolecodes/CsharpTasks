@@ -19,6 +19,7 @@ namespace BankApp.Core.Features
             var into = _accountRepository.GetAccountById(intoAccountId);
 
             into.PayIn(amount);
+
             if (into.FraudulentActivityDectected())
             {
                 _notificationService.NotifyFraudlentActivity(into);
