@@ -6,26 +6,31 @@ namespace BankApp.Core.Features
 {
     public class WithdrawMoney
     {
-        private IAccountRepository accountRepository;
-        private INotificationService notificationService;
+        private IAccountRepository _accountRepository;
+        private INotificationService _notificationService;
 
         public WithdrawMoney(IAccountRepository accountRepository, INotificationService notificationService)
         {
-            this.accountRepository = accountRepository;
-            this.notificationService = notificationService;
+            this._accountRepository = accountRepository;
+            this._notificationService = notificationService;
         }
 
         public void Execute(int fromAccountId, decimal amount)
         {
-            var from = accountRepository.GetAccountById(fromAccountId);
+            var from = _accountRepository.GetAccountById(fromAccountId);
 
             // ToDo
             from.Withdraw(amount);
 
             if (from.IsLowBalance())
-                this.notificationService.NotifyFundsLow(from);
+                this._notificationService.NotifyFundsLow(from);
 
-            this.accountRepository.Update(from);
+            if (from.FraudulentActivityDectected())
+            {
+                _notificationService.NotifyFraudlentActivity(from);
+            }
+
+            this._accountRepository.Update(from);
         }
     }
 }
