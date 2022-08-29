@@ -57,6 +57,27 @@ namespace UserRegistrationApp
             }
         }
 
-        public
+        public void UpdateUser (User user)
+        {
+            using (var dbContext = new UserRegistrationContext())
+            {
+                var result = dbContext.Users.SingleOrDefault(x => x.Email == user.Email);
+
+                result.Name = user.Name;
+                result.Email = user.Email;
+                dbContext.SaveChanges();
+            }
+        }
+
+        public void DeleteUser(string email)
+        {
+            using (var dbContext = new UserRegistrationContext())
+            {
+                var result = dbContext.Users.SingleOrDefault(x => x.Email == email);
+
+                dbContext.Users.Remove(result);
+                dbContext.SaveChanges();
+            }
+        }
     }
 }

@@ -44,12 +44,13 @@ namespace UserRegistration
                         Console.WriteLine("User registered successfully");
                     }
                     
-                }else if (option == "2")
+                }
+                else if (option == "2")
                 {
                     Console.WriteLine("1 to view all users, 2 to view specific user");
-                    var option2 = Console.ReadLine();
+                    var viewOption = Console.ReadLine();
 
-                    if(option2 == "1")
+                    if(viewOption == "1")
                     {
                         var allUsers = pple.GetAllUsers();
 
@@ -57,7 +58,7 @@ namespace UserRegistration
                         {
                             Console.WriteLine($"Name: {user.Name}, Email: {user.Email}");
                         }
-                    }else if (option2 == "2")
+                    }else if (viewOption == "2")
                     {
                         Console.Write("Provide user email: ");
                         var email = Console.ReadLine();
@@ -66,6 +67,33 @@ namespace UserRegistration
 
                         Console.WriteLine($"Name: {user.Name}, Email: {user.Email}");
                     }
+                }
+                else if (option == "3")
+                {
+                    Console.Write("Enter Email: ");
+                    var email = Console.ReadLine();
+
+                    Console.Write("Enter New Name: ");
+                    var newName = Console.ReadLine();
+
+                    var user = new User
+                    {
+                        Name = newName,
+                        Email = email
+                    };
+
+                    pple.UpdateUser(user);
+
+                    Console.WriteLine("Name updated successfully");
+                }
+                else if (option == "4")
+                {
+                    Console.Write("Enter Email of user to delete: ");
+                    var email = Console.ReadLine();
+
+                    pple.DeleteUser(email);
+
+                    Console.WriteLine("User deleted successfully");
                 }
             }
         }
