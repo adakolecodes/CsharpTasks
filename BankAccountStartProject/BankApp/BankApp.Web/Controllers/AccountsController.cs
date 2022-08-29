@@ -29,7 +29,19 @@ namespace BankApp.Web.Controllers
             });
         }
 
-      
+
+        //[HttpPost("Account")]
+        //public void CreateAccount(string email)
+        //{
+        //    var user = new Account()
+        //    {
+        //        Email = email
+        //    };
+        //    var userId = _accountRepository.CreateUser(user);
+        //    _accountRepository.CreateAccount(userId);
+        //}
+
+
     }
 
 
