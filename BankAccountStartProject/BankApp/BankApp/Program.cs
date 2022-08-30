@@ -12,7 +12,9 @@ namespace MoneyBox.ConsoleApp
         {
             Console.WriteLine("Hello, World!");
 
-            var repoService = new InMemoryAccountRepository();
+            //var repoService = new InMemoryAccountRepository();
+
+            var repoService = new DbAccountRepository();
             var notificationService = new NotificationService();
 
 
@@ -62,8 +64,8 @@ namespace MoneyBox.ConsoleApp
             }
         }
 
-
         //Below is for InMemoryAccountRepository
+        
         static void CreateAccount(IAccountRepository repo)
         {
             try
