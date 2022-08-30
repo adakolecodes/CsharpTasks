@@ -13,8 +13,11 @@ namespace BankApp.Core.DataAccess
     {
         public int CreateAccount(string emailAddress)
         {
-            var dbAccount = new AccountDb();
-            dbAccount.Email = emailAddress;
+            //Create a new object of AccountDb class
+            var dbAccount = new AccountDb()
+            {
+                Email = emailAddress
+            };
 
             using (var dbContext = new BankContext())
             {
@@ -30,9 +33,20 @@ namespace BankApp.Core.DataAccess
             {
                 var result = dbContext.AccountDbs.SingleOrDefault(x => x.Id == accountId);
 
-                var account = AccountFactory.ToAccount(result);
+                //This
+                //Create an object of Account class, put in the result from query and return the object
+                var account = new Account()
+                {
+                    Id = result.Id,
+                    Email = result.Email,
+                    Balance = result.Balance,
+                    Withdrawn = result.Withdrawn,
+                    PaidIn = result.PaidIn
+                };
 
-                
+                //OR this
+                //var account = AccountFactory.ToAccount(result);
+
                 return account;
             }
         }
@@ -41,8 +55,18 @@ namespace BankApp.Core.DataAccess
         {
             using (var dbContext = new BankContext())
             {
-                //transform the db object into your domain object
-                return dbContext.AccountDbs.Select(x => AccountFactory.ToAccount(x)).ToList();
+                //This - transform the db object into your domain object
+                return dbContext.AccountDbs.Select(x => new Account()
+                {
+                    Id = x.Id,
+                    Email = x.Email,
+                    Balance = x.Balance,
+                    Withdrawn = x.Withdrawn,
+                    PaidIn = x.PaidIn
+                }).ToList();
+
+                //OR This
+                //return dbContext.AccountDbs.Select(x => AccountFactory.ToAccount(x)).ToList();
             }
         }
 
