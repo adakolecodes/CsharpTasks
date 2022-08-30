@@ -15,9 +15,11 @@ namespace UserRegistrationApp
 
         public int CreateAccount(string name, string email)
         {
-            var dbUser = new User();
-            dbUser.Name = name;
-            dbUser.Email = email;
+            var dbUser = new User()
+            {
+                Name = name,
+                Email = email
+            };
 
             using (var dbContext = new UserRegistrationContext())
             {
@@ -49,9 +51,11 @@ namespace UserRegistrationApp
             {
                 var result = dbContext.Users.SingleOrDefault(x => x.Email == email);
 
-                var user = new User();
-                user.Name = result.Name;
-                user.Email = result.Email;
+                var user = new User()
+                {
+                    Name = result.Name,
+                    Email = result.Email
+                };
 
                 return user;
             }
