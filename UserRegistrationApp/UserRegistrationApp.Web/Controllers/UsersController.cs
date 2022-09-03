@@ -25,9 +25,17 @@ namespace UserRegistrationApp.Web.Controllers
             var accounts = _people.GetAllUsers();
             return accounts.Select(x => new UserDetails()
             {
+                Id = x.Id,
                 Name = x.Name,
                 Email = x.Email
             });
+        }
+
+        [HttpPost("UserCreate")]
+        public int CreateAccount(string name, string email)
+        {
+            var res = _people.CreateAccount(name, email);
+            return res;
         }
     }
 }
