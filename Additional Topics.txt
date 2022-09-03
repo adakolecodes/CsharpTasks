@@ -68,7 +68,7 @@ STEPS IN ADDING AN ASP.NET CORE WEB API PROJECT IN OUR APP
 1. Add a new project of asp.net core web api
 2. Click on dependencies and add project reference of app on api project
 3. If you wish to use swagger api then right click on web api project and manage nuget packages and install Swashbuckle.AspNetCore. More info on swagger api UI here: https://aka.ms/aspnetcore/swashbuckle
-4. Right click on controller foler (create one if it does not exists) and add an API controller empty
+4. Right click on controller foler (create one if it does not exists) and add an API controller empty - it is created in form of a class
 5. Proceed with code as done in projects - BankAppStarterProject, UserRegistrationApp
 
 NOTE: When accessing the Swagger from the browser, it might not direct to the complete url however add /swagger if only the localhost:port is given
