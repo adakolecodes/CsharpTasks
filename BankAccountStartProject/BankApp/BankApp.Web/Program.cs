@@ -1,4 +1,5 @@
 using BankApp.Core.DataAccess;
+using BankApp.Core.Features;
 using BankApp.Core.Services;
 using BankApp.Data.Scaffolded;
 
@@ -21,6 +22,10 @@ builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<IAccountRepository, DbAccountRepository>();
 
 //builder.Services.AddDbContext<BankContext>();
+
+builder.Services.AddScoped<PayInMoney>();
+builder.Services.AddScoped<WithdrawMoney>();
+builder.Services.AddScoped<TransferMoney>();
 
 
 

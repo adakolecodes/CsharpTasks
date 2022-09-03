@@ -1,4 +1,6 @@
 using BankApp.Core.DataAccess;
+using BankApp.Core.Features;
+using BankApp.Data.Scaffolded;
 using BankApp.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,10 +12,16 @@ namespace BankApp.Web.Controllers
     {
 
         private readonly IAccountRepository _accountRepository;
+        private readonly PayInMoney _payInMoney;
+        private readonly WithdrawMoney _withdraw;
+        private readonly TransferMoney _transfer;
 
-        public AccountsController(IAccountRepository accountRepository)
+        public AccountsController(IAccountRepository accountRepository, PayInMoney payInMoney, WithdrawMoney withdraw, TransferMoney transfer)
         {
             _accountRepository = accountRepository;
+            _payInMoney = payInMoney;
+            _withdraw = withdraw;
+            _transfer = transfer;
         }
 
         [HttpGet]
@@ -29,18 +37,36 @@ namespace BankApp.Web.Controllers
             });
         }
 
+        [HttpPost("AccountCreate")]
+        public int CreateAccount(string email)
+        {
+            var account = new AccountDb()
+            {
+                Email = email
+            };
+            
+            _accountRepository.CreateAccount(account.Email);
 
-        //[HttpPost("Account")]
-        //public void CreateAccount(string email)
-        //{
-        //    var user = new Account()
-        //    {
-        //        Email = email
-        //    };
-        //    var userId = _accountRepository.CreateUser(user);
-        //    _accountRepository.CreateAccount(userId);
-        //}
+            return account.Id;
+        }
 
+        [HttpGet("PayIn")]
+        public void PayIn(int accountId, decimal amount)
+        {
+            _payInMoney.Execute(accountId, amount);
+        }
+
+        [HttpGet("Withdrawal")]
+        public void withdrawal(int accountId, decimal amount)
+        {
+            _withdraw.Execute(accountId, amount);
+        }
+
+        [HttpGet("Transfer")]
+        public void withdrawal(int fromAccount, int toAccount, decimal amount)
+        {
+            _transfer.Execute(fromAccount, toAccount, amount);
+        }
 
     }
 
