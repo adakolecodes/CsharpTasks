@@ -1,0 +1,115 @@
+First()
+
+It returns the first element from a sequence. It means when we query in a collection on specific criteria, if multiple elements are found in a collection of given criteria then the first element of a sequence will return.
+
+Note: We cannot iterate when using the First() method, hence we are returning just a single element.
+
+
+FirstOrDefault()
+
+In the above example for First() method, we did positive testing, now we need to do negative testing with an invalid CurrentClass.
+
+When we do that and we run the console application we get an exception indicating the sequence contains no element, this is where the FirstOrDefault() method comes in.
+
+FirstOrDefault works same as First() does, FirstOrDefault returns the first element from a sequence, but here there is an advantage over First(), so if there is no record in the collection which matches input criteria then FirstOrDefault() can handle null values and it does not throw an exception.
+
+Conclusion
+
+Use First() when you are sure that a query must return a record, and use FirstOrDefault() when you are not sure whether it will return a record or not.
+
+
+
+yield return (C# Reference)
+
+When you use the yield contextual keyword in a statement, you indicate that the method, operator, or get accessor in which it appears is an iterator. The yield keyword tells the compiler that the method in which it appears is an iterator block.
+
+The yield return statement returns one element at a time. The return type of yield keyword is either IEnumerable or IEnumerator. The yield break statement is used to end the iteration.
+
+We can consume the iterator method that contains a yield return statement either by using foreach loop or LINQ query, that is, we can access elements returned from a yield return statement by the use of foreach loop or Linq query. Each iteration of the loop calls the iterator method.
+
+
+
+
+STEPS IN CREATING DATABASE
+1. Connect to DB
+2. Right click on databases and select new database
+3. Enter database name and click ok
+4. Right click on the database just created and select new query and paste the sql query for creating table
+5. To see created table, expand the table folder, resfresh if table does not appear
+
+
+
+BANKAPP WITH DATABASE CREATION PROCESS
+1. Create a new project (Project already exists, open it)
+2. Add a new class library project by right clicking on solution
+3. Set new class library project created as startup project
+4. Manage Nuget Packages on the new class library project created by right clicking on project folder and install the necessary 3 libraries
+5. Open package manager console by clicking on tools and nuget package manager
+6. Select the class library project as the default project in the package manager console
+7. Paste the scaffold connection string and enter
+
+Scaffold-DbContext "data source=(LocalDB)\MSSQLLocalDB;initial catalog=DatabaseName;MultipleActiveResultSets=True;App=EntityFramework" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Scaffolded
+
+All the classes should be created automatically for you.
+Note: Before you run the program in the console window, ensure you change the startup project to the one that has the program.cs class
+
+
+
+STEPS AFTER SCAFFOLDING FOR BANKAPP
+Note: Scaffolding will not run if properties are encapsulated, because we cannot set balance therefore our tests will throw error, fix error by removing balance so balance can be instantiated to zero.
+
+1. Rather than using the InMemoryAccountRepository to access our db and create our methods for logic, we create a new class of DbAccountRepository in the DataAccess folder. Remeber to create an instance of it in the program class so as to access it's methods. Get rid of the InMemoryAccountRepository
+2. Ensure in your DbAccountRepository you add using BankApp.Core.Domain; so as to access the Account class. Add using BankApp.Data.Scaffolded; also so as to use the BankContext class
+3. DbAccountRepositiry will throw error on IAccountRepository text, fix it by seeing suggested fixes and select first option
+
+
+
+STEPS IN ADDING AN ASP.NET CORE WEB API PROJECT IN OUR APP
+1. Add a new project of asp.net core web api
+2. Click on dependencies and add project reference of app on api project
+3. Right click on controller foler (create one if it does not exists) and add an API controller empty
+4. If you wish to use swagger api then right click on web api project and manage nuget packages and install Swashbuckle.AspNetCore. More info on swagger api UI here: https://aka.ms/aspnetcore/swashbuckle
+5. Proceed with code as done in projects - BankAppStarterProject, UserRegistrationApp
+NOTE: When accessing the Swagger from the browser, it might not direct to the complete url however add /swagger if only the localhost:port is given
+
+
+
+
+
+
+BANKAPP DATABASE QUERY
+
+CREATE TABLE [dbo].[AccountDb](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Email] Nvarchar(200) NULL,
+	Balance Decimal(18, 2) Not NULL default(0),
+	Withdrawn Decimal(18, 2) Not NULL default(0),
+	PaidIn Decimal(18, 2) Not NULL default(0),
+	PRIMARY KEY  (Id)
+) 
+GO
+
+CREATE TABLE [dbo].Notification(
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Email] Nvarchar(200) NULL,
+	[Message]  Nvarchar(max) NULL,
+	PRIMARY KEY  (Id)
+) 
+
+
+
+
+
+OTHER MINOR CORRECTIONS STUDENTS SHOULD DO
+1. Proper field naming convention in Accouts.cs, WithDrawMoney.cs class
+
+
+PROJECT REPO LINK
+GROUP 1
+https://github.com/Isamamichael/CSharpCodesNew/tree/master/BankAccountStartProject
+
+GROUP 2
+https://github.com/Izic111/CSharpCodes/tree/master/BankAccountStartProject
+
+
+
